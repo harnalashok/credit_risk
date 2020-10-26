@@ -1,0 +1,5 @@
+# in _config.yml
+title: "Assessing Home Credit Default Risk"
+logo: images/FORE.jpg
+execute:
+  execute_notebooks: "off"

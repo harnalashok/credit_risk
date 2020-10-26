@@ -1,0 +1,26 @@
+# In _toc.yml
+- file: landing-page
+- part: Get started
+  chapters:
+  - file: start-here-a-gentle-introduction
+- part: Process train/test
+  chapters:  
+  - file: application_train_test
+- part: Process Bureau data
+  chapters:  
+  - file: bureau
+- part: Process POS data
+  chapters:   
+  - file: pos_cash_balance
+- part: Process Earlier applications data
+  chapters:   
+  - file: previous_applications
+- part: Process Credit Card Data
+  chapters:   
+  - file: credit_card_balance
+- part: Installments payment data
+  chapters: 
+  - file: installments_payments
+- part: Merging all processed data
+  chapters:   
+  - file: join_all_processed

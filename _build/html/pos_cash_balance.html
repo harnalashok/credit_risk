@@ -1,0 +1,1516 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POS Cash balance &#8212; Assessing Home Credit Default Risk</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Previous Applications" href="previous_applications.html" />
+    <link rel="prev" title="Bureau and Bureau Balance data" href="bureau.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/FORE.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Assessing Home Credit Default Risk</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="landing-page.html">
+   Assessing Home Credit Default Risk
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html">
+   Introduction: Home Credit Default Risk Competition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#data">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#feature-engineering">
+   Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#baseline">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#just-for-fun-light-gradient-boosting-machine">
+   Just for Fun: Light Gradient Boosting Machine
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process train/test
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="application_train_test.html">
+   Process train and test files
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Bureau data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bureau.html">
+   Bureau and Bureau Balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process POS data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   POS Cash balance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Earlier applications data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_applications.html">
+   Previous Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Credit Card Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="credit_card_balance.html">
+   Credit Card balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Installments payment data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installments_payments.html">
+   Install payments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Merging all processed data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="join_all_processed.html">
+   Joining all processed data
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/pos_cash_balance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/pos_cash_balance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-data">
+   About the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-explanations">
+   Feature explanations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   About the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Feature explanations
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pos-cash-balance">
+<h1>POS Cash balance<a class="headerlink" href="#pos-cash-balance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-the-data">
+<h2>About the data<a class="headerlink" href="#about-the-data" title="Permalink to this headline">¶</a></h2>
+<blockquote>POS_CASH_BALANCE: Monthly data about previous point of sale or cash loans clients have had with <u>Home Credit</u>. Each row is <i>one month</i> of a previous point of sale or cash loan, and a single previous loan can have many rows. This dataset contrasts with <i>bureau_balance</i> dataset where monthly installments were of loans with <u>bureau</u>.</blockquote></div>
+<div class="section" id="feature-explanations">
+<h2>Feature explanations<a class="headerlink" href="#feature-explanations" title="Permalink to this headline">¶</a></h2>
+<blockquote><p style="font-size:13px"> 
+SK_ID_PREV : 	ID of previous credit in Home Credit related to loan in our sample. (One loan in our sample can have 0,1,2 or more previous loans in Home Credit)	
+SK_ID_CURR: 	ID of loan in our sample	
+MONTHS_BALANCE: 	Month of balance relative to application date (-1 means the information to the freshest monthly snapshot, 0 means the information at application - often it will be the same as -1 as many banks are not updating the information to Credit Bureau regularly )	
+CNT_INSTALMENT: 	Term of previous credit (can change over time)	
+CNT_INSTALMENT_FUTURE: 	Installments left to pay on the previous credit	
+NAME_CONTRACT_STATUS: 	Contract status during the month	
+SK_DPD: 	DPD (days past due) during the month of previous credit	
+SK_DPD_DEF: 	DPD during the month with tolerance (debts with low loan amounts are ignored) of the previous credit</p></blockquote><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Last amended: 24th October, 2020</span>
+<span class="c1"># Myfolder: C:\Users\Administrator\OneDrive\Documents\home_credit_default_risk</span>
+<span class="c1"># Objective: </span>
+<span class="c1">#           Solving Kaggle problem: Home Credit Default Risk</span>
+<span class="c1">#           Processing POS_CASH_balance dataset</span>
+<span class="c1">#</span>
+<span class="c1"># Data Source: https://www.kaggle.com/c/home-credit-default-risk/data</span>
+<span class="c1"># Ref: https://www.kaggle.com/jsaguiar/lightgbm-with-simple-features</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.0 Libraries</span>
+<span class="c1">#     (Some of these may not be needed here.)</span>
+<span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+
+<span class="c1"># 1.1 Reduce read data size</span>
+<span class="c1">#     There is a file reducing.py</span>
+<span class="c1">#      in this folder. A class</span>
+<span class="c1">#       in it is used to reduce</span>
+<span class="c1">#        dataframe size</span>
+<span class="c1">#     (Code modified by me to</span>
+<span class="c1">#      exclude &#39;category&#39; dtype)</span>
+<span class="kn">import</span> <span class="nn">reducing</span>
+
+<span class="c1"># 1.2 Misc</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.3</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.4 Display multiple commands outputs from a cell</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.0 Onehot encoding (OHE) function. Uses pd.get_dummies()</span>
+<span class="c1">#     i) To transform &#39;object&#39; columns to dummies. </span>
+<span class="c1">#    ii) Treat NaN as one of the categories</span>
+<span class="c1">#   iii) Returns transformed-data and new-columns created</span>
+
+<span class="k">def</span> <span class="nf">one_hot_encoder</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="n">original_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+                        <span class="n">columns</span><span class="o">=</span> <span class="n">categorical_columns</span><span class="p">,</span>
+                        <span class="n">dummy_na</span><span class="o">=</span> <span class="n">nan_as_category</span>       <span class="c1"># Treat NaNs as category</span>
+                       <span class="p">)</span>
+    <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">original_columns</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.0 Prepare to read data</span>
+<span class="n">pathToData</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">Administrator</span><span class="se">\\</span><span class="s2">OneDrive</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">home_credit_default_risk&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pathToData</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.1 Some constants</span>
+<span class="n">num_rows</span><span class="o">=</span><span class="kc">None</span>                <span class="c1"># Implies read all rows</span>
+<span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span>       <span class="c1"># While transforming </span>
+                             <span class="c1">#   &#39;object&#39; columns to dummies</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>About the data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>POS_CASH_BALANCE: Monthly data about previous point of sale or cash loans clients have had with <u>Home Credit</u>. Each row is <i>one month</i> of a previous point of sale or cash loan, and a single previous loan can have many rows. This dataset contrasts with <i>bureau_balance</i> dataset where monthly installments were of loans with <u>bureau</u>.</blockquote><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.2 Read previous application data first</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                   <span class="s1">&#39;POS_CASH_balance.csv.zip&#39;</span><span class="p">,</span>
+                   <span class="n">nrows</span> <span class="o">=</span> <span class="n">num_rows</span>
+                   <span class="p">)</span>
+
+<span class="c1"># 3.0.1 Reduce memory usage by appropriately</span>
+<span class="c1">#       changing data-types per feature:</span>
+
+<span class="n">pos</span> <span class="o">=</span> <span class="n">reducing</span><span class="o">.</span><span class="n">Reducer</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reduced df from 610.4346 MB to 352.9075 MB in 3.50 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.3</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">shape</span>    <span class="c1"># (rows: 1,00,01358, cols: 8)</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10001358, 8)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_PREV</th>
+      <th>SK_ID_CURR</th>
+      <th>MONTHS_BALANCE</th>
+      <th>CNT_INSTALMENT</th>
+      <th>CNT_INSTALMENT_FUTURE</th>
+      <th>NAME_CONTRACT_STATUS</th>
+      <th>SK_DPD</th>
+      <th>SK_DPD_DEF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1803195</td>
+      <td>182943</td>
+      <td>-31</td>
+      <td>48.0</td>
+      <td>45.0</td>
+      <td>Active</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1715348</td>
+      <td>367990</td>
+      <td>-33</td>
+      <td>36.0</td>
+      <td>35.0</td>
+      <td>Active</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1784872</td>
+      <td>397406</td>
+      <td>-32</td>
+      <td>12.0</td>
+      <td>9.0</td>
+      <td>Active</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1903291</td>
+      <td>269225</td>
+      <td>-35</td>
+      <td>48.0</td>
+      <td>42.0</td>
+      <td>Active</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2341044</td>
+      <td>334279</td>
+      <td>-35</td>
+      <td>36.0</td>
+      <td>35.0</td>
+      <td>Active</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Feature explanations<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>SK_ID_PREV : 	ID of previous credit in Home Credit related to loan in our sample. (One loan in our sample can have 0,1,2 or more previous loans in Home Credit)	
+SK_ID_CURR: 	ID of loan in our sample	
+MONTHS_BALANCE: 	Month of balance relative to application date (-1 means the information to the freshest monthly snapshot, 0 means the information at application - often it will be the same as -1 as many banks are not updating the information to Credit Bureau regularly )	
+CNT_INSTALMENT: 	Term of previous credit (can change over time)	
+CNT_INSTALMENT_FUTURE: 	Installments left to pay on the previous credit	
+NAME_CONTRACT_STATUS: 	Contract status during the month	
+SK_DPD: 	DPD (days past due) during the month of previous credit	
+SK_DPD_DEF: 	DPD during the month with tolerance (debts with low loan amounts are ignored) of the previous credit</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.3.1 There is one object type</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64    2
+uint32     2
+uint16     2
+object     1
+int8       1
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.0 Transform object type columns to OHE</span>
+<span class="n">pos</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">nan_as_category</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.1</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">shape</span>    <span class="c1"># (10001358, 17)</span>
+<span class="n">pos</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10001358, 17)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_PREV</th>
+      <th>SK_ID_CURR</th>
+      <th>MONTHS_BALANCE</th>
+      <th>CNT_INSTALMENT</th>
+      <th>CNT_INSTALMENT_FUTURE</th>
+      <th>SK_DPD</th>
+      <th>SK_DPD_DEF</th>
+      <th>NAME_CONTRACT_STATUS_Active</th>
+      <th>NAME_CONTRACT_STATUS_Amortized debt</th>
+      <th>NAME_CONTRACT_STATUS_Approved</th>
+      <th>NAME_CONTRACT_STATUS_Canceled</th>
+      <th>NAME_CONTRACT_STATUS_Completed</th>
+      <th>NAME_CONTRACT_STATUS_Demand</th>
+      <th>NAME_CONTRACT_STATUS_Returned to the store</th>
+      <th>NAME_CONTRACT_STATUS_Signed</th>
+      <th>NAME_CONTRACT_STATUS_XNA</th>
+      <th>NAME_CONTRACT_STATUS_nan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1803195</td>
+      <td>182943</td>
+      <td>-31</td>
+      <td>48.0</td>
+      <td>45.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1715348</td>
+      <td>367990</td>
+      <td>-33</td>
+      <td>36.0</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1784872</td>
+      <td>397406</td>
+      <td>-32</td>
+      <td>12.0</td>
+      <td>9.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1903291</td>
+      <td>269225</td>
+      <td>-35</td>
+      <td>48.0</td>
+      <td>42.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2341044</td>
+      <td>334279</td>
+      <td>-35</td>
+      <td>36.0</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.2 New columns are:</span>
+<span class="n">cat_cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;NAME_CONTRACT_STATUS_Active&#39;,
+ &#39;NAME_CONTRACT_STATUS_Amortized debt&#39;,
+ &#39;NAME_CONTRACT_STATUS_Approved&#39;,
+ &#39;NAME_CONTRACT_STATUS_Canceled&#39;,
+ &#39;NAME_CONTRACT_STATUS_Completed&#39;,
+ &#39;NAME_CONTRACT_STATUS_Demand&#39;,
+ &#39;NAME_CONTRACT_STATUS_Returned to the store&#39;,
+ &#39;NAME_CONTRACT_STATUS_Signed&#39;,
+ &#39;NAME_CONTRACT_STATUS_XNA&#39;,
+ &#39;NAME_CONTRACT_STATUS_nan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.3 How to aggregate features:</span>
+<span class="c1">#     Note CNT_INSTALMENT and CNT_INSTALMENT_FUTURE</span>
+<span class="c1">#       do not find place:</span>
+
+<span class="n">aggregations</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;MONTHS_BALANCE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;SK_DPD&#39;</span><span class="p">:</span>         <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;SK_DPD_DEF&#39;</span><span class="p">:</span>     <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+               <span class="p">}</span>
+
+<span class="c1"># 4.3.1</span>
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">cat_cols</span><span class="p">:</span>
+    <span class="n">aggregations</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.3.2 Full dictionary</span>
+<span class="n">aggregations</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;MONTHS_BALANCE&#39;: [&#39;max&#39;, &#39;mean&#39;, &#39;size&#39;],
+ &#39;SK_DPD&#39;: [&#39;max&#39;, &#39;mean&#39;],
+ &#39;SK_DPD_DEF&#39;: [&#39;max&#39;, &#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Active&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Amortized debt&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Approved&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Canceled&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Completed&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Demand&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Returned to the store&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Signed&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_nan&#39;: [&#39;mean&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.0 Aggregate now</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span>
+<span class="n">pos_agg</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggregations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.1</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">shape</span>     <span class="c1"># (337252, 17)</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(337252, 17)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">MONTHS_BALANCE</th>
+      <th colspan="2" halign="left">SK_DPD</th>
+      <th colspan="2" halign="left">SK_DPD_DEF</th>
+      <th>NAME_CONTRACT_STATUS_Active</th>
+      <th>NAME_CONTRACT_STATUS_Amortized debt</th>
+      <th>NAME_CONTRACT_STATUS_Approved</th>
+      <th>NAME_CONTRACT_STATUS_Canceled</th>
+      <th>NAME_CONTRACT_STATUS_Completed</th>
+      <th>NAME_CONTRACT_STATUS_Demand</th>
+      <th>NAME_CONTRACT_STATUS_Returned to the store</th>
+      <th>NAME_CONTRACT_STATUS_Signed</th>
+      <th>NAME_CONTRACT_STATUS_XNA</th>
+      <th>NAME_CONTRACT_STATUS_nan</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>max</th>
+      <th>mean</th>
+      <th>size</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>-53</td>
+      <td>-72.555556</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>0.777778</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.222222</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>-1</td>
+      <td>-10.000000</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>-18</td>
+      <td>-43.785714</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.928571</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.071429</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>-24</td>
+      <td>-25.500000</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.750000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.250000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>-15</td>
+      <td>-20.000000</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.818182</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MultiIndex([(                            &#39;MONTHS_BALANCE&#39;,  &#39;max&#39;),
+            (                            &#39;MONTHS_BALANCE&#39;, &#39;mean&#39;),
+            (                            &#39;MONTHS_BALANCE&#39;, &#39;size&#39;),
+            (                                    &#39;SK_DPD&#39;,  &#39;max&#39;),
+            (                                    &#39;SK_DPD&#39;, &#39;mean&#39;),
+            (                                &#39;SK_DPD_DEF&#39;,  &#39;max&#39;),
+            (                                &#39;SK_DPD_DEF&#39;, &#39;mean&#39;),
+            (               &#39;NAME_CONTRACT_STATUS_Active&#39;, &#39;mean&#39;),
+            (       &#39;NAME_CONTRACT_STATUS_Amortized debt&#39;, &#39;mean&#39;),
+            (             &#39;NAME_CONTRACT_STATUS_Approved&#39;, &#39;mean&#39;),
+            (             &#39;NAME_CONTRACT_STATUS_Canceled&#39;, &#39;mean&#39;),
+            (            &#39;NAME_CONTRACT_STATUS_Completed&#39;, &#39;mean&#39;),
+            (               &#39;NAME_CONTRACT_STATUS_Demand&#39;, &#39;mean&#39;),
+            (&#39;NAME_CONTRACT_STATUS_Returned to the store&#39;, &#39;mean&#39;),
+            (               &#39;NAME_CONTRACT_STATUS_Signed&#39;, &#39;mean&#39;),
+            (                  &#39;NAME_CONTRACT_STATUS_XNA&#39;, &#39;mean&#39;),
+            (                  &#39;NAME_CONTRACT_STATUS_nan&#39;, &#39;mean&#39;)],
+           )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.2 Rename multiindex columns</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;POS_&#39;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">pos_agg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.3</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;POS_MONTHS_BALANCE_MAX&#39;, &#39;POS_MONTHS_BALANCE_MEAN&#39;,
+       &#39;POS_MONTHS_BALANCE_SIZE&#39;, &#39;POS_SK_DPD_MAX&#39;, &#39;POS_SK_DPD_MEAN&#39;,
+       &#39;POS_SK_DPD_DEF_MAX&#39;, &#39;POS_SK_DPD_DEF_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Active_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Amortized debt_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Approved_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Canceled_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Completed_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Demand_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Returned to the store_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_Signed_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_XNA_MEAN&#39;,
+       &#39;POS_NAME_CONTRACT_STATUS_nan_MEAN&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>POS_MONTHS_BALANCE_MAX</th>
+      <th>POS_MONTHS_BALANCE_MEAN</th>
+      <th>POS_MONTHS_BALANCE_SIZE</th>
+      <th>POS_SK_DPD_MAX</th>
+      <th>POS_SK_DPD_MEAN</th>
+      <th>POS_SK_DPD_DEF_MAX</th>
+      <th>POS_SK_DPD_DEF_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Active_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Amortized debt_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Approved_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Canceled_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Completed_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Demand_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Returned to the store_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Signed_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_XNA_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_nan_MEAN</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>-53</td>
+      <td>-72.555556</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>0.777778</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.222222</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>-1</td>
+      <td>-10.000000</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>-18</td>
+      <td>-43.785714</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.928571</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.071429</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>-24</td>
+      <td>-25.500000</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.750000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.250000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>-15</td>
+      <td>-20.000000</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.818182</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.4 Count pos cash accounts</span>
+<span class="c1">#     Per client how many entries/rows exist</span>
+<span class="n">pos_agg</span><span class="p">[</span><span class="s1">&#39;POS_COUNT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pos_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>POS_MONTHS_BALANCE_MAX</th>
+      <th>POS_MONTHS_BALANCE_MEAN</th>
+      <th>POS_MONTHS_BALANCE_SIZE</th>
+      <th>POS_SK_DPD_MAX</th>
+      <th>POS_SK_DPD_MEAN</th>
+      <th>POS_SK_DPD_DEF_MAX</th>
+      <th>POS_SK_DPD_DEF_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Active_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Amortized debt_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Approved_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Canceled_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Completed_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Demand_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Returned to the store_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_Signed_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_XNA_MEAN</th>
+      <th>POS_NAME_CONTRACT_STATUS_nan_MEAN</th>
+      <th>POS_COUNT</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>-53</td>
+      <td>-72.555556</td>
+      <td>9</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>7</td>
+      <td>0.777778</td>
+      <td>0.777778</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.222222</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>-1</td>
+      <td>-10.000000</td>
+      <td>19</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>-18</td>
+      <td>-43.785714</td>
+      <td>28</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.928571</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.071429</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>-24</td>
+      <td>-25.500000</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.750000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.250000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>-15</td>
+      <td>-20.000000</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.818182</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.090909</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.0 Save the results for subsequent use:</span>
+<span class="n">pos_agg</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;processed_pos_agg.csv.zip&quot;</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span><span class="p">)</span>   
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">######################</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="bureau.html" title="previous page">Bureau and Bureau Balance data</a>
+    <a class='right-next' id="next-link" href="previous_applications.html" title="next page">Previous Applications</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

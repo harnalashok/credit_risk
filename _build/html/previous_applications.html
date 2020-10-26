@@ -1,0 +1,5857 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Previous Applications &#8212; Assessing Home Credit Default Risk</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Credit Card balance data" href="credit_card_balance.html" />
+    <link rel="prev" title="POS Cash balance" href="pos_cash_balance.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/FORE.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Assessing Home Credit Default Risk</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="landing-page.html">
+   Assessing Home Credit Default Risk
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html">
+   Introduction: Home Credit Default Risk Competition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#data">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#feature-engineering">
+   Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#baseline">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#just-for-fun-light-gradient-boosting-machine">
+   Just for Fun: Light Gradient Boosting Machine
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process train/test
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="application_train_test.html">
+   Process train and test files
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Bureau data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bureau.html">
+   Bureau and Bureau Balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process POS data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pos_cash_balance.html">
+   POS Cash balance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Earlier applications data
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Previous Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Credit Card Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="credit_card_balance.html">
+   Credit Card balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Installments payment data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installments_payments.html">
+   Install payments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Merging all processed data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="join_all_processed.html">
+   Joining all processed data
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/previous_applications.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/previous_applications.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-data">
+   About the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-explanations">
+   Feature Explanations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#perform-aggregations">
+   Perform aggregations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-aggregations">
+   More aggregations
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="previous-applications">
+<h1>Previous Applications<a class="headerlink" href="#previous-applications" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-the-data">
+<h2>About the data<a class="headerlink" href="#about-the-data" title="Permalink to this headline">¶</a></h2>
+<blockquote>previous_application: This dataset has details of previous applications made by clients to Home Credit. Only those clients find place here who also exist in <i>application</i> data. Each current loan in the <i>application</i> data (identified by <i>SK_ID_CURR</i>) can have multiple previous loan applications. Each previous application has one row and is identified by the feature <i>SK_ID_PREV</i>.</blockquote> 
+</div>
+<div class="section" id="feature-explanations">
+<h2>Feature Explanations<a class="headerlink" href="#feature-explanations" title="Permalink to this headline">¶</a></h2>
+<blockquote><p style="font-size:13px"> 
+SK_ID_PREV : 	ID of previous credit in Home credit related to loan in our sample. (One loan in our sample can have 0,1,2 or more previous loan applications in Home Credit, previous application could, but not necessarily have to lead to credit) <br>						
+SK_ID_CURR: 	ID of loan in our sample<br>						
+NAME_CONTRACT_TYPE: 	Contract product type (Cash loan, consumer loan [POS] ,...) of the previous application<br>						
+AMT_ANNUITY: 	Annuity of previous application<br>						
+AMT_APPLICATION: 	For how much credit did client ask on the previous application<br>						
+AMT_CREDIT: 	Final credit amount on the previous application. This differs from AMT_APPLICATION in a way that the AMT_APPLICATION is the amount for which the client initially applied for, but during our approval process he could have received different amount - AMT_CREDIT<br>						
+AMT_DOWN_PAYMENT: 	Down payment on the previous application<br>						
+AMT_GOODS_PRICE: 	Goods price of good that client asked for (if applicable) on the previous application<br>						
+WEEKDAY_APPR_PROCESS_START: 	On which day of the week did the client apply for previous application<br>						
+HOUR_APPR_PROCESS_START: 	Approximately at what day hour did the client apply for the previous application<br>						
+FLAG_LAST_APPL_PER_CONTRACT: 	Flag if it was last application for the previous contract. Sometimes by mistake of client or our clerk there could be more applications for one single contract<br>						
+NFLAG_LAST_APPL_IN_DAY: 	Flag if the application was the last application per day of the client. Sometimes clients apply for more applications a day. Rarely it could also be error in our system that one application is in the database twice<br>						
+NFLAG_MICRO_CASH: 	Flag Micro finance loan<br>						
+RATE_DOWN_PAYMENT: 	Down payment rate normalized on previous credit<br>						
+RATE_INTEREST_PRIMARY: 	Interest rate normalized on previous credit<br>						
+RATE_INTEREST_PRIVILEGED: 	Interest rate normalized on previous credit<br>						
+NAME_CASH_LOAN_PURPOSE: 	Purpose of the cash loan<br>						
+NAME_CONTRACT_STATUS: 	Contract status (approved, cancelled, ...) of previous application<br>						
+DAYS_DECISION: 	Relative to current application when was the decision about previous application made<br>						
+NAME_PAYMENT_TYPE: 	Payment method that client chose to pay for the previous application<br>						
+CODE_REJECT_REASON: 	Why was the previous application rejected<br>						
+NAME_TYPE_SUITE: 	Who accompanied client when applying for the previous application<br>						
+NAME_CLIENT_TYPE: 	Was the client old or new client when applying for the previous application<br>						
+NAME_GOODS_CATEGORY: 	What kind of goods did the client apply for in the previous application<br>						
+NAME_PORTFOLIO: 	Was the previous application for CASH, POS, CAR, …<br>						
+NAME_PRODUCT_TYPE: 	Was the previous application x-sell o walk-in<br>						
+CHANNEL_TYPE: 	Through which channel we acquired the client on the previous application<br>						
+SELLERPLACE_AREA: 	Selling area of seller place of the previous application<br>						
+NAME_SELLER_INDUSTRY: 	The industry of the seller<br>						
+CNT_PAYMENT: 	Term of previous credit at application of the previous application<br>						
+NAME_YIELD_GROUP: 	Grouped interest rate into small medium and high of the previous application<br>						
+PRODUCT_COMBINATION: 	Detailed product combination of the previous application<br>						
+DAYS_FIRST_DRAWING: 	Relative to application date of current application when was the first disbursement of the previous application<br>						
+DAYS_FIRST_DUE: 	Relative to application date of current application when was the first due supposed to be of the previous application<br>						
+DAYS_LAST_DUE_1ST_VERSION: 	Relative to application date of current application when was the first due of the previous application<br>						
+DAYS_LAST_DUE: 	Relative to application date of current application when was the last due date of the previous application<br>						
+DAYS_TERMINATION: 	Relative to application date of current application when was the expected termination of the previous application<br>						
+NFLAG_INSURED_ON_APPROVAL: 	Did the client requested insurance during the previous application<br>	</p></blockquote><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Last amended: 24rd October, 2020</span>
+<span class="c1"># Myfolder: C:\Users\Administrator\OneDrive\Documents\home_credit_default_risk</span>
+<span class="c1"># Objective: </span>
+<span class="c1">#           Solving Kaggle problem: Home Credit Default Risk</span>
+<span class="c1">#           Processing previous_application dataset</span>
+<span class="c1">#</span>
+<span class="c1"># Data Source: https://www.kaggle.com/c/home-credit-default-risk/data</span>
+<span class="c1"># Ref: https://www.kaggle.com/jsaguiar/lightgbm-with-simple-features</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.0 Libraries</span>
+<span class="c1">#     (Some of these may not be needed here.)</span>
+<span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+
+<span class="c1"># 1.1 Reduce read data size</span>
+<span class="c1">#     There is a file reducing.py</span>
+<span class="c1">#      in this folder. A class</span>
+<span class="c1">#       in it is used to reduce</span>
+<span class="c1">#        dataframe size</span>
+<span class="c1">#     (Code modified by me to</span>
+<span class="c1">#      exclude &#39;category&#39; dtype)</span>
+<span class="kn">import</span> <span class="nn">reducing</span>
+
+<span class="c1"># 1.2 Misc</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.3</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.4 Display multiple commands outputs from a cell</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.0 Onehot encoding (OHE) function. Uses pd.get_dummies()</span>
+<span class="c1">#     i) To transform &#39;object&#39; columns to dummies. </span>
+<span class="c1">#    ii) Treat NaN as one of the categories</span>
+<span class="c1">#   iii) Returns transformed-data and new-columns created</span>
+
+<span class="k">def</span> <span class="nf">one_hot_encoder</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="n">original_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+                        <span class="n">columns</span><span class="o">=</span> <span class="n">categorical_columns</span><span class="p">,</span>
+                        <span class="n">dummy_na</span><span class="o">=</span> <span class="n">nan_as_category</span>       <span class="c1"># Treat NaNs as category</span>
+                       <span class="p">)</span>
+    <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">original_columns</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.1</span>
+<span class="n">pathToFolder</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">Administrator</span><span class="se">\\</span><span class="s2">OneDrive</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">home_credit_default_risk&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pathToFolder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.2 Some constants</span>
+<span class="n">num_rows</span><span class="o">=</span><span class="kc">None</span>                <span class="c1"># Implies read all rows</span>
+<span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span>       <span class="c1"># While transforming </span>
+                             <span class="c1">#   &#39;object&#39; columns to dummies</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.0 Read previous application data first</span>
+<span class="n">prev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                   <span class="s1">&#39;previous_application.csv.zip&#39;</span><span class="p">,</span>
+                   <span class="n">nrows</span> <span class="o">=</span> <span class="n">num_rows</span>
+                   <span class="p">)</span>
+
+<span class="c1"># 3.0.1 Reduce memory usage by appropriately</span>
+<span class="c1">#       changing data-types per feature:</span>
+
+<span class="n">prev</span> <span class="o">=</span> <span class="n">reducing</span><span class="o">.</span><span class="n">Reducer</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">prev</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reduced df from 471.4808 MB to 414.1386 MB in 3.82 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.0.2</span>
+<span class="n">prev</span><span class="o">.</span><span class="n">shape</span>             <span class="c1"># (rows=16,70,214, cols = 37)</span>
+<span class="n">prev</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">prev</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1670214, 37)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_PREV</th>
+      <th>SK_ID_CURR</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_APPLICATION</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_DOWN_PAYMENT</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>FLAG_LAST_APPL_PER_CONTRACT</th>
+      <th>NFLAG_LAST_APPL_IN_DAY</th>
+      <th>RATE_DOWN_PAYMENT</th>
+      <th>RATE_INTEREST_PRIMARY</th>
+      <th>RATE_INTEREST_PRIVILEGED</th>
+      <th>NAME_CASH_LOAN_PURPOSE</th>
+      <th>NAME_CONTRACT_STATUS</th>
+      <th>DAYS_DECISION</th>
+      <th>NAME_PAYMENT_TYPE</th>
+      <th>CODE_REJECT_REASON</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_CLIENT_TYPE</th>
+      <th>NAME_GOODS_CATEGORY</th>
+      <th>NAME_PORTFOLIO</th>
+      <th>NAME_PRODUCT_TYPE</th>
+      <th>CHANNEL_TYPE</th>
+      <th>SELLERPLACE_AREA</th>
+      <th>NAME_SELLER_INDUSTRY</th>
+      <th>CNT_PAYMENT</th>
+      <th>NAME_YIELD_GROUP</th>
+      <th>PRODUCT_COMBINATION</th>
+      <th>DAYS_FIRST_DRAWING</th>
+      <th>DAYS_FIRST_DUE</th>
+      <th>DAYS_LAST_DUE_1ST_VERSION</th>
+      <th>DAYS_LAST_DUE</th>
+      <th>DAYS_TERMINATION</th>
+      <th>NFLAG_INSURED_ON_APPROVAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2030495</td>
+      <td>271877</td>
+      <td>Consumer loans</td>
+      <td>1730.430</td>
+      <td>17145.0</td>
+      <td>17145.0</td>
+      <td>0.0</td>
+      <td>17145.0</td>
+      <td>SATURDAY</td>
+      <td>15</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.182832</td>
+      <td>0.867336</td>
+      <td>XAP</td>
+      <td>Approved</td>
+      <td>-73</td>
+      <td>Cash through the bank</td>
+      <td>XAP</td>
+      <td>NaN</td>
+      <td>Repeater</td>
+      <td>Mobile</td>
+      <td>POS</td>
+      <td>XNA</td>
+      <td>Country-wide</td>
+      <td>35</td>
+      <td>Connectivity</td>
+      <td>12.0</td>
+      <td>middle</td>
+      <td>POS mobile with interest</td>
+      <td>365243.0</td>
+      <td>-42.0</td>
+      <td>300.0</td>
+      <td>-42.0</td>
+      <td>-37.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2802425</td>
+      <td>108129</td>
+      <td>Cash loans</td>
+      <td>25188.615</td>
+      <td>607500.0</td>
+      <td>679671.0</td>
+      <td>NaN</td>
+      <td>607500.0</td>
+      <td>THURSDAY</td>
+      <td>11</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>XNA</td>
+      <td>Approved</td>
+      <td>-164</td>
+      <td>XNA</td>
+      <td>XAP</td>
+      <td>Unaccompanied</td>
+      <td>Repeater</td>
+      <td>XNA</td>
+      <td>Cash</td>
+      <td>x-sell</td>
+      <td>Contact center</td>
+      <td>-1</td>
+      <td>XNA</td>
+      <td>36.0</td>
+      <td>low_action</td>
+      <td>Cash X-Sell: low</td>
+      <td>365243.0</td>
+      <td>-134.0</td>
+      <td>916.0</td>
+      <td>365243.0</td>
+      <td>365243.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2523466</td>
+      <td>122040</td>
+      <td>Cash loans</td>
+      <td>15060.735</td>
+      <td>112500.0</td>
+      <td>136444.5</td>
+      <td>NaN</td>
+      <td>112500.0</td>
+      <td>TUESDAY</td>
+      <td>11</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>XNA</td>
+      <td>Approved</td>
+      <td>-301</td>
+      <td>Cash through the bank</td>
+      <td>XAP</td>
+      <td>Spouse, partner</td>
+      <td>Repeater</td>
+      <td>XNA</td>
+      <td>Cash</td>
+      <td>x-sell</td>
+      <td>Credit and cash offices</td>
+      <td>-1</td>
+      <td>XNA</td>
+      <td>12.0</td>
+      <td>high</td>
+      <td>Cash X-Sell: high</td>
+      <td>365243.0</td>
+      <td>-271.0</td>
+      <td>59.0</td>
+      <td>365243.0</td>
+      <td>365243.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2819243</td>
+      <td>176158</td>
+      <td>Cash loans</td>
+      <td>47041.335</td>
+      <td>450000.0</td>
+      <td>470790.0</td>
+      <td>NaN</td>
+      <td>450000.0</td>
+      <td>MONDAY</td>
+      <td>7</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>XNA</td>
+      <td>Approved</td>
+      <td>-512</td>
+      <td>Cash through the bank</td>
+      <td>XAP</td>
+      <td>NaN</td>
+      <td>Repeater</td>
+      <td>XNA</td>
+      <td>Cash</td>
+      <td>x-sell</td>
+      <td>Credit and cash offices</td>
+      <td>-1</td>
+      <td>XNA</td>
+      <td>12.0</td>
+      <td>middle</td>
+      <td>Cash X-Sell: middle</td>
+      <td>365243.0</td>
+      <td>-482.0</td>
+      <td>-152.0</td>
+      <td>-182.0</td>
+      <td>-177.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1784265</td>
+      <td>202054</td>
+      <td>Cash loans</td>
+      <td>31924.395</td>
+      <td>337500.0</td>
+      <td>404055.0</td>
+      <td>NaN</td>
+      <td>337500.0</td>
+      <td>THURSDAY</td>
+      <td>9</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Repairs</td>
+      <td>Refused</td>
+      <td>-781</td>
+      <td>Cash through the bank</td>
+      <td>HC</td>
+      <td>NaN</td>
+      <td>Repeater</td>
+      <td>XNA</td>
+      <td>Cash</td>
+      <td>walk-in</td>
+      <td>Credit and cash offices</td>
+      <td>-1</td>
+      <td>XNA</td>
+      <td>24.0</td>
+      <td>high</td>
+      <td>Cash Street: high</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;SK_ID_PREV&#39;, &#39;SK_ID_CURR&#39;, &#39;NAME_CONTRACT_TYPE&#39;, &#39;AMT_ANNUITY&#39;,
+       &#39;AMT_APPLICATION&#39;, &#39;AMT_CREDIT&#39;, &#39;AMT_DOWN_PAYMENT&#39;, &#39;AMT_GOODS_PRICE&#39;,
+       &#39;WEEKDAY_APPR_PROCESS_START&#39;, &#39;HOUR_APPR_PROCESS_START&#39;,
+       &#39;FLAG_LAST_APPL_PER_CONTRACT&#39;, &#39;NFLAG_LAST_APPL_IN_DAY&#39;,
+       &#39;RATE_DOWN_PAYMENT&#39;, &#39;RATE_INTEREST_PRIMARY&#39;,
+       &#39;RATE_INTEREST_PRIVILEGED&#39;, &#39;NAME_CASH_LOAN_PURPOSE&#39;,
+       &#39;NAME_CONTRACT_STATUS&#39;, &#39;DAYS_DECISION&#39;, &#39;NAME_PAYMENT_TYPE&#39;,
+       &#39;CODE_REJECT_REASON&#39;, &#39;NAME_TYPE_SUITE&#39;, &#39;NAME_CLIENT_TYPE&#39;,
+       &#39;NAME_GOODS_CATEGORY&#39;, &#39;NAME_PORTFOLIO&#39;, &#39;NAME_PRODUCT_TYPE&#39;,
+       &#39;CHANNEL_TYPE&#39;, &#39;SELLERPLACE_AREA&#39;, &#39;NAME_SELLER_INDUSTRY&#39;,
+       &#39;CNT_PAYMENT&#39;, &#39;NAME_YIELD_GROUP&#39;, &#39;PRODUCT_COMBINATION&#39;,
+       &#39;DAYS_FIRST_DRAWING&#39;, &#39;DAYS_FIRST_DUE&#39;, &#39;DAYS_LAST_DUE_1ST_VERSION&#39;,
+       &#39;DAYS_LAST_DUE&#39;, &#39;DAYS_TERMINATION&#39;, &#39;NFLAG_INSURED_ON_APPROVAL&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.1 Let us examine how many unique IDs exist </span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;SK_ID_PREV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>   <span class="c1"># 1670214 Unique number</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>   <span class="c1"># 338857  So a number of repeat exist</span>
+                               <span class="c1"># We have to aggregate over it</span>
+                               <span class="c1">#  to extract behaviour of clients</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1670214
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>338857
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.2 Let us see distribution of dtypes</span>
+<span class="c1">#     There are 16 &#39;object&#39; types here</span>
+
+<span class="n">prev</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>object     16
+float64    14
+uint8      2 
+uint32     2 
+float32    1 
+int16      1 
+int32      1 
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.3</span>
+<span class="n">prev</span><span class="o">.</span><span class="n">shape</span>                       <span class="c1"># (1670214, 37)</span>
+
+<span class="c1"># 3.3.1</span>
+<span class="c1"># What is the actual number of persons</span>
+<span class="c1">#  who might have taken multiple loans?</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>     <span class="c1"># 338857  -- Many duplicate values exist</span>
+                                   <span class="c1">#            Consider SK_ID_CURR as Foreign Key</span>
+                                   <span class="c1">#            Primary key exists in application_train data</span>
+                                   <span class="c1"># Primary key: SK_ID_BUREAU</span>
+            
+<span class="c1"># 3.3.2</span>
+<span class="c1"># As expected, there are no duplicate values here</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;SK_ID_PREV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>   <span class="c1"># 1670214 -- Unique id for each row </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1670214, 37)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>338857
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1670214
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.0 OneHotEncode (OHE) &#39;object&#39; types in bureau</span>
+
+<span class="n">prev</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="p">(</span>
+                                 <span class="n">prev</span><span class="p">,</span>
+                                 <span class="n">nan_as_category</span><span class="o">=</span> <span class="kc">True</span>
+                                 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.1</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">)</span>      <span class="c1"># 159</span>
+<span class="n">cat_cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>159
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;NAME_CONTRACT_TYPE_Cash loans&#39;,
+ &#39;NAME_CONTRACT_TYPE_Consumer loans&#39;,
+ &#39;NAME_CONTRACT_TYPE_Revolving loans&#39;,
+ &#39;NAME_CONTRACT_TYPE_XNA&#39;,
+ &#39;NAME_CONTRACT_TYPE_nan&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_FRIDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_MONDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_SATURDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_SUNDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_THURSDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_TUESDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_WEDNESDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_nan&#39;,
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_N&#39;,
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_Y&#39;,
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_nan&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Building a house or an annex&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Business development&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a garage&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a home&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a new car&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a used car&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Car repairs&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Education&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Everyday expenses&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Furniture&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Gasification / water supply&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Hobby&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Journey&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Medicine&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Money for a third person&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Other&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Payments on other loans&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Purchase of electronic equipment&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Refusal to name the goal&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Repairs&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Urgent needs&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_Wedding / gift / holiday&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_XAP&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_XNA&#39;,
+ &#39;NAME_CASH_LOAN_PURPOSE_nan&#39;,
+ &#39;NAME_CONTRACT_STATUS_Approved&#39;,
+ &#39;NAME_CONTRACT_STATUS_Canceled&#39;,
+ &#39;NAME_CONTRACT_STATUS_Refused&#39;,
+ &#39;NAME_CONTRACT_STATUS_Unused offer&#39;,
+ &#39;NAME_CONTRACT_STATUS_nan&#39;,
+ &#39;NAME_PAYMENT_TYPE_Cash through the bank&#39;,
+ &#39;NAME_PAYMENT_TYPE_Cashless from the account of the employer&#39;,
+ &#39;NAME_PAYMENT_TYPE_Non-cash from your account&#39;,
+ &#39;NAME_PAYMENT_TYPE_XNA&#39;,
+ &#39;NAME_PAYMENT_TYPE_nan&#39;,
+ &#39;CODE_REJECT_REASON_CLIENT&#39;,
+ &#39;CODE_REJECT_REASON_HC&#39;,
+ &#39;CODE_REJECT_REASON_LIMIT&#39;,
+ &#39;CODE_REJECT_REASON_SCO&#39;,
+ &#39;CODE_REJECT_REASON_SCOFR&#39;,
+ &#39;CODE_REJECT_REASON_SYSTEM&#39;,
+ &#39;CODE_REJECT_REASON_VERIF&#39;,
+ &#39;CODE_REJECT_REASON_XAP&#39;,
+ &#39;CODE_REJECT_REASON_XNA&#39;,
+ &#39;CODE_REJECT_REASON_nan&#39;,
+ &#39;NAME_TYPE_SUITE_Children&#39;,
+ &#39;NAME_TYPE_SUITE_Family&#39;,
+ &#39;NAME_TYPE_SUITE_Group of people&#39;,
+ &#39;NAME_TYPE_SUITE_Other_A&#39;,
+ &#39;NAME_TYPE_SUITE_Other_B&#39;,
+ &#39;NAME_TYPE_SUITE_Spouse, partner&#39;,
+ &#39;NAME_TYPE_SUITE_Unaccompanied&#39;,
+ &#39;NAME_TYPE_SUITE_nan&#39;,
+ &#39;NAME_CLIENT_TYPE_New&#39;,
+ &#39;NAME_CLIENT_TYPE_Refreshed&#39;,
+ &#39;NAME_CLIENT_TYPE_Repeater&#39;,
+ &#39;NAME_CLIENT_TYPE_XNA&#39;,
+ &#39;NAME_CLIENT_TYPE_nan&#39;,
+ &#39;NAME_GOODS_CATEGORY_Additional Service&#39;,
+ &#39;NAME_GOODS_CATEGORY_Animals&#39;,
+ &#39;NAME_GOODS_CATEGORY_Audio/Video&#39;,
+ &#39;NAME_GOODS_CATEGORY_Auto Accessories&#39;,
+ &#39;NAME_GOODS_CATEGORY_Clothing and Accessories&#39;,
+ &#39;NAME_GOODS_CATEGORY_Computers&#39;,
+ &#39;NAME_GOODS_CATEGORY_Construction Materials&#39;,
+ &#39;NAME_GOODS_CATEGORY_Consumer Electronics&#39;,
+ &#39;NAME_GOODS_CATEGORY_Direct Sales&#39;,
+ &#39;NAME_GOODS_CATEGORY_Education&#39;,
+ &#39;NAME_GOODS_CATEGORY_Fitness&#39;,
+ &#39;NAME_GOODS_CATEGORY_Furniture&#39;,
+ &#39;NAME_GOODS_CATEGORY_Gardening&#39;,
+ &#39;NAME_GOODS_CATEGORY_Homewares&#39;,
+ &#39;NAME_GOODS_CATEGORY_House Construction&#39;,
+ &#39;NAME_GOODS_CATEGORY_Insurance&#39;,
+ &#39;NAME_GOODS_CATEGORY_Jewelry&#39;,
+ &#39;NAME_GOODS_CATEGORY_Medical Supplies&#39;,
+ &#39;NAME_GOODS_CATEGORY_Medicine&#39;,
+ &#39;NAME_GOODS_CATEGORY_Mobile&#39;,
+ &#39;NAME_GOODS_CATEGORY_Office Appliances&#39;,
+ &#39;NAME_GOODS_CATEGORY_Other&#39;,
+ &#39;NAME_GOODS_CATEGORY_Photo / Cinema Equipment&#39;,
+ &#39;NAME_GOODS_CATEGORY_Sport and Leisure&#39;,
+ &#39;NAME_GOODS_CATEGORY_Tourism&#39;,
+ &#39;NAME_GOODS_CATEGORY_Vehicles&#39;,
+ &#39;NAME_GOODS_CATEGORY_Weapon&#39;,
+ &#39;NAME_GOODS_CATEGORY_XNA&#39;,
+ &#39;NAME_GOODS_CATEGORY_nan&#39;,
+ &#39;NAME_PORTFOLIO_Cards&#39;,
+ &#39;NAME_PORTFOLIO_Cars&#39;,
+ &#39;NAME_PORTFOLIO_Cash&#39;,
+ &#39;NAME_PORTFOLIO_POS&#39;,
+ &#39;NAME_PORTFOLIO_XNA&#39;,
+ &#39;NAME_PORTFOLIO_nan&#39;,
+ &#39;NAME_PRODUCT_TYPE_XNA&#39;,
+ &#39;NAME_PRODUCT_TYPE_walk-in&#39;,
+ &#39;NAME_PRODUCT_TYPE_x-sell&#39;,
+ &#39;NAME_PRODUCT_TYPE_nan&#39;,
+ &#39;CHANNEL_TYPE_AP+ (Cash loan)&#39;,
+ &#39;CHANNEL_TYPE_Car dealer&#39;,
+ &#39;CHANNEL_TYPE_Channel of corporate sales&#39;,
+ &#39;CHANNEL_TYPE_Contact center&#39;,
+ &#39;CHANNEL_TYPE_Country-wide&#39;,
+ &#39;CHANNEL_TYPE_Credit and cash offices&#39;,
+ &#39;CHANNEL_TYPE_Regional / Local&#39;,
+ &#39;CHANNEL_TYPE_Stone&#39;,
+ &#39;CHANNEL_TYPE_nan&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Auto technology&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Clothing&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Connectivity&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Construction&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Consumer electronics&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Furniture&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Industry&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Jewelry&#39;,
+ &#39;NAME_SELLER_INDUSTRY_MLM partners&#39;,
+ &#39;NAME_SELLER_INDUSTRY_Tourism&#39;,
+ &#39;NAME_SELLER_INDUSTRY_XNA&#39;,
+ &#39;NAME_SELLER_INDUSTRY_nan&#39;,
+ &#39;NAME_YIELD_GROUP_XNA&#39;,
+ &#39;NAME_YIELD_GROUP_high&#39;,
+ &#39;NAME_YIELD_GROUP_low_action&#39;,
+ &#39;NAME_YIELD_GROUP_low_normal&#39;,
+ &#39;NAME_YIELD_GROUP_middle&#39;,
+ &#39;NAME_YIELD_GROUP_nan&#39;,
+ &#39;PRODUCT_COMBINATION_Card Street&#39;,
+ &#39;PRODUCT_COMBINATION_Card X-Sell&#39;,
+ &#39;PRODUCT_COMBINATION_Cash&#39;,
+ &#39;PRODUCT_COMBINATION_Cash Street: high&#39;,
+ &#39;PRODUCT_COMBINATION_Cash Street: low&#39;,
+ &#39;PRODUCT_COMBINATION_Cash Street: middle&#39;,
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: high&#39;,
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: low&#39;,
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: middle&#39;,
+ &#39;PRODUCT_COMBINATION_POS household with interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS household without interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS industry with interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS industry without interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS mobile with interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS mobile without interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS other with interest&#39;,
+ &#39;PRODUCT_COMBINATION_POS others without interest&#39;,
+ &#39;PRODUCT_COMBINATION_nan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.2.1 Just examine NULLs in few features</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>     <span class="c1"># 673065</span>
+<span class="c1"># 4.2.2 And also this special constant value: 365243</span>
+<span class="p">(</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">365243</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># 934444</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>         <span class="c1"># 673065</span>
+<span class="p">(</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DUE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">365243</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>      <span class="c1">#  40645</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>          <span class="c1"># 673065</span>
+<span class="p">(</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">365243</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>       <span class="c1"># 211221</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_TERMINATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>       <span class="c1"># 673065</span>
+<span class="p">(</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_TERMINATION&#39;</span><span class="p">]</span><span class="o">==</span> <span class="mi">365243</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>     <span class="c1"># 225913</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>673065
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>934444
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>673065
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40645
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>673065
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>211221
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>673065
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>225913
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.3 Examine total number of unique values</span>
+<span class="c1">#     in each one of the above four features</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>     <span class="c1"># 2838</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>         <span class="c1"># 2892</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>          <span class="c1"># 2873</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_TERMINATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>       <span class="c1"># 2830</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2838
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1670213    365243.0
+572469     365243.0
+572494     365243.0
+572491     365243.0
+572489     365243.0
+Name: DAYS_FIRST_DRAWING, dtype: float64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2892
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2873
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2830
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.4 Convert Days 365243 values to nan</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE_1ST_VERSION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_TERMINATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.5 So how many NULLS now exist in each one of</span>
+<span class="c1">#     these four features:</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DRAWING&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>     <span class="c1"># 1607509</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_FIRST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>         <span class="c1">#  713710</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_LAST_DUE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>          <span class="c1">#  884286</span>
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;DAYS_TERMINATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>       <span class="c1">#  898978</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1607509
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>713710
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>884286
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>898978
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="perform-aggregations">
+<h2>Perform aggregations<a class="headerlink" href="#perform-aggregations" title="Permalink to this headline">¶</a></h2>
+<blockquote>On the whole of dataset, perform aggregations for numerical features and perform aggregations on just created OHE features. Numerical features are being aggregated as: <i>min, max, mean..</i> while OHE features aggregation is just <i>'mean'</i>.</blockquote><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.0 One special feature</span>
+<span class="c1">#     Add feature: value ask / value received percentage</span>
+
+<span class="n">prev</span><span class="p">[</span><span class="s1">&#39;APP_CREDIT_PERC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="s1">&#39;AMT_APPLICATION&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">prev</span><span class="p">[</span><span class="s1">&#39;AMT_CREDIT&#39;</span><span class="p">]</span>
+
+<span class="c1"># 5.1 Numeric features aggregations:</span>
+<span class="c1">#     Dictionary of what all operations are to </span>
+<span class="c1">#     performed on numerical features:</span>
+
+<span class="n">num_aggregations</span> <span class="o">=</span> <span class="p">{</span>
+                     <span class="s1">&#39;AMT_ANNUITY&#39;</span><span class="p">:</span>             <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;AMT_APPLICATION&#39;</span><span class="p">:</span>         <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;AMT_CREDIT&#39;</span><span class="p">:</span>              <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;APP_CREDIT_PERC&#39;</span><span class="p">:</span>         <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;AMT_DOWN_PAYMENT&#39;</span><span class="p">:</span>        <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;AMT_GOODS_PRICE&#39;</span><span class="p">:</span>         <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;HOUR_APPR_PROCESS_START&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;RATE_DOWN_PAYMENT&#39;</span><span class="p">:</span>       <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;DAYS_DECISION&#39;</span><span class="p">:</span>           <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;CNT_PAYMENT&#39;</span><span class="p">:</span>             <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">],</span>
+                    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.2 Categorical features</span>
+<span class="c1">#     Create a dictionary for aggregation operations:</span>
+
+<span class="n">cat_aggregations</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="n">cat_cols</span><span class="p">:</span>
+    <span class="n">cat_aggregations</span><span class="p">[</span><span class="n">cat</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span>
+
+<span class="c1"># 5.2.1    </span>
+<span class="n">cat_aggregations</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;NAME_CONTRACT_TYPE_Cash loans&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_TYPE_Consumer loans&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_TYPE_Revolving loans&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_TYPE_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_TYPE_nan&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_FRIDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_MONDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_SATURDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_SUNDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_THURSDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_TUESDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_WEDNESDAY&#39;: [&#39;mean&#39;],
+ &#39;WEEKDAY_APPR_PROCESS_START_nan&#39;: [&#39;mean&#39;],
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_N&#39;: [&#39;mean&#39;],
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_Y&#39;: [&#39;mean&#39;],
+ &#39;FLAG_LAST_APPL_PER_CONTRACT_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Building a house or an annex&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Business development&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a garage&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a home&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a new car&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Buying a used car&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Car repairs&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Education&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Everyday expenses&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Furniture&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Gasification / water supply&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Hobby&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Journey&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Medicine&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Money for a third person&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Other&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Payments on other loans&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Purchase of electronic equipment&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Refusal to name the goal&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Repairs&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Urgent needs&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_Wedding / gift / holiday&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_XAP&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_CASH_LOAN_PURPOSE_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Approved&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Canceled&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Refused&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_Unused offer&#39;: [&#39;mean&#39;],
+ &#39;NAME_CONTRACT_STATUS_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_PAYMENT_TYPE_Cash through the bank&#39;: [&#39;mean&#39;],
+ &#39;NAME_PAYMENT_TYPE_Cashless from the account of the employer&#39;: [&#39;mean&#39;],
+ &#39;NAME_PAYMENT_TYPE_Non-cash from your account&#39;: [&#39;mean&#39;],
+ &#39;NAME_PAYMENT_TYPE_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_PAYMENT_TYPE_nan&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_CLIENT&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_HC&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_LIMIT&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_SCO&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_SCOFR&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_SYSTEM&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_VERIF&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_XAP&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_XNA&#39;: [&#39;mean&#39;],
+ &#39;CODE_REJECT_REASON_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Children&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Family&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Group of people&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Other_A&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Other_B&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Spouse, partner&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_Unaccompanied&#39;: [&#39;mean&#39;],
+ &#39;NAME_TYPE_SUITE_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_CLIENT_TYPE_New&#39;: [&#39;mean&#39;],
+ &#39;NAME_CLIENT_TYPE_Refreshed&#39;: [&#39;mean&#39;],
+ &#39;NAME_CLIENT_TYPE_Repeater&#39;: [&#39;mean&#39;],
+ &#39;NAME_CLIENT_TYPE_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_CLIENT_TYPE_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Additional Service&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Animals&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Audio/Video&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Auto Accessories&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Clothing and Accessories&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Computers&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Construction Materials&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Consumer Electronics&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Direct Sales&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Education&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Fitness&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Furniture&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Gardening&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Homewares&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_House Construction&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Insurance&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Jewelry&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Medical Supplies&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Medicine&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Mobile&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Office Appliances&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Other&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Photo / Cinema Equipment&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Sport and Leisure&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Tourism&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Vehicles&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_Weapon&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_GOODS_CATEGORY_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_Cards&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_Cars&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_Cash&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_POS&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_PORTFOLIO_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_PRODUCT_TYPE_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_PRODUCT_TYPE_walk-in&#39;: [&#39;mean&#39;],
+ &#39;NAME_PRODUCT_TYPE_x-sell&#39;: [&#39;mean&#39;],
+ &#39;NAME_PRODUCT_TYPE_nan&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_AP+ (Cash loan)&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Car dealer&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Channel of corporate sales&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Contact center&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Country-wide&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Credit and cash offices&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Regional / Local&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_Stone&#39;: [&#39;mean&#39;],
+ &#39;CHANNEL_TYPE_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Auto technology&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Clothing&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Connectivity&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Construction&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Consumer electronics&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Furniture&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Industry&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Jewelry&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_MLM partners&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_Tourism&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_SELLER_INDUSTRY_nan&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_XNA&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_high&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_low_action&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_low_normal&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_middle&#39;: [&#39;mean&#39;],
+ &#39;NAME_YIELD_GROUP_nan&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Card Street&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Card X-Sell&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash Street: high&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash Street: low&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash Street: middle&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: high&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: low&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_Cash X-Sell: middle&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS household with interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS household without interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS industry with interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS industry without interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS mobile with interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS mobile without interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS other with interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_POS others without interest&#39;: [&#39;mean&#39;],
+ &#39;PRODUCT_COMBINATION_nan&#39;: [&#39;mean&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.3 Perform aggregation now on SK_ID_CURR:</span>
+
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span>
+<span class="n">prev_agg</span><span class="o">=</span><span class="n">grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="o">**</span><span class="n">num_aggregations</span><span class="p">,</span> <span class="o">**</span><span class="n">cat_aggregations</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.3.1</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">shape</span>    <span class="c1"># (338857, 189)</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(338857, 189)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MultiIndex([(                                       &#39;AMT_ANNUITY&#39;,  &#39;min&#39;),
+            (                                       &#39;AMT_ANNUITY&#39;,  &#39;max&#39;),
+            (                                       &#39;AMT_ANNUITY&#39;, &#39;mean&#39;),
+            (                                   &#39;AMT_APPLICATION&#39;,  &#39;min&#39;),
+            (                                   &#39;AMT_APPLICATION&#39;,  &#39;max&#39;),
+            (                                   &#39;AMT_APPLICATION&#39;, &#39;mean&#39;),
+            (                                        &#39;AMT_CREDIT&#39;,  &#39;min&#39;),
+            (                                        &#39;AMT_CREDIT&#39;,  &#39;max&#39;),
+            (                                        &#39;AMT_CREDIT&#39;, &#39;mean&#39;),
+            (                                   &#39;APP_CREDIT_PERC&#39;,  &#39;min&#39;),
+            ...
+            (           &#39;PRODUCT_COMBINATION_Cash X-Sell: middle&#39;, &#39;mean&#39;),
+            (   &#39;PRODUCT_COMBINATION_POS household with interest&#39;, &#39;mean&#39;),
+            (&#39;PRODUCT_COMBINATION_POS household without interest&#39;, &#39;mean&#39;),
+            (    &#39;PRODUCT_COMBINATION_POS industry with interest&#39;, &#39;mean&#39;),
+            ( &#39;PRODUCT_COMBINATION_POS industry without interest&#39;, &#39;mean&#39;),
+            (      &#39;PRODUCT_COMBINATION_POS mobile with interest&#39;, &#39;mean&#39;),
+            (   &#39;PRODUCT_COMBINATION_POS mobile without interest&#39;, &#39;mean&#39;),
+            (       &#39;PRODUCT_COMBINATION_POS other with interest&#39;, &#39;mean&#39;),
+            (   &#39;PRODUCT_COMBINATION_POS others without interest&#39;, &#39;mean&#39;),
+            (                           &#39;PRODUCT_COMBINATION_nan&#39;, &#39;mean&#39;)],
+           length=189)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">AMT_ANNUITY</th>
+      <th colspan="3" halign="left">AMT_APPLICATION</th>
+      <th colspan="3" halign="left">AMT_CREDIT</th>
+      <th colspan="4" halign="left">APP_CREDIT_PERC</th>
+      <th colspan="3" halign="left">AMT_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">AMT_GOODS_PRICE</th>
+      <th colspan="3" halign="left">HOUR_APPR_PROCESS_START</th>
+      <th colspan="3" halign="left">RATE_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">DAYS_DECISION</th>
+      <th colspan="2" halign="left">CNT_PAYMENT</th>
+      <th>NAME_CONTRACT_TYPE_Cash loans</th>
+      <th>NAME_CONTRACT_TYPE_Consumer loans</th>
+      <th>NAME_CONTRACT_TYPE_Revolving loans</th>
+      <th>NAME_CONTRACT_TYPE_XNA</th>
+      <th>NAME_CONTRACT_TYPE_nan</th>
+      <th>WEEKDAY_APPR_PROCESS_START_FRIDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_MONDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_SATURDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_SUNDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_THURSDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_TUESDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_WEDNESDAY</th>
+      <th>WEEKDAY_APPR_PROCESS_START_nan</th>
+      <th>FLAG_LAST_APPL_PER_CONTRACT_N</th>
+      <th>FLAG_LAST_APPL_PER_CONTRACT_Y</th>
+      <th>FLAG_LAST_APPL_PER_CONTRACT_nan</th>
+      <th>NAME_CASH_LOAN_PURPOSE_Building a house or an annex</th>
+      <th>NAME_CASH_LOAN_PURPOSE_Business development</th>
+      <th>NAME_CASH_LOAN_PURPOSE_Buying a garage</th>
+      <th>NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land</th>
+      <th>...</th>
+      <th>NAME_PORTFOLIO_nan</th>
+      <th>NAME_PRODUCT_TYPE_XNA</th>
+      <th>NAME_PRODUCT_TYPE_walk-in</th>
+      <th>NAME_PRODUCT_TYPE_x-sell</th>
+      <th>NAME_PRODUCT_TYPE_nan</th>
+      <th>CHANNEL_TYPE_AP+ (Cash loan)</th>
+      <th>CHANNEL_TYPE_Car dealer</th>
+      <th>CHANNEL_TYPE_Channel of corporate sales</th>
+      <th>CHANNEL_TYPE_Contact center</th>
+      <th>CHANNEL_TYPE_Country-wide</th>
+      <th>CHANNEL_TYPE_Credit and cash offices</th>
+      <th>CHANNEL_TYPE_Regional / Local</th>
+      <th>CHANNEL_TYPE_Stone</th>
+      <th>CHANNEL_TYPE_nan</th>
+      <th>NAME_SELLER_INDUSTRY_Auto technology</th>
+      <th>NAME_SELLER_INDUSTRY_Clothing</th>
+      <th>NAME_SELLER_INDUSTRY_Connectivity</th>
+      <th>NAME_SELLER_INDUSTRY_Construction</th>
+      <th>NAME_SELLER_INDUSTRY_Consumer electronics</th>
+      <th>NAME_SELLER_INDUSTRY_Furniture</th>
+      <th>NAME_SELLER_INDUSTRY_Industry</th>
+      <th>NAME_SELLER_INDUSTRY_Jewelry</th>
+      <th>NAME_SELLER_INDUSTRY_MLM partners</th>
+      <th>NAME_SELLER_INDUSTRY_Tourism</th>
+      <th>NAME_SELLER_INDUSTRY_XNA</th>
+      <th>NAME_SELLER_INDUSTRY_nan</th>
+      <th>NAME_YIELD_GROUP_XNA</th>
+      <th>NAME_YIELD_GROUP_high</th>
+      <th>NAME_YIELD_GROUP_low_action</th>
+      <th>NAME_YIELD_GROUP_low_normal</th>
+      <th>NAME_YIELD_GROUP_middle</th>
+      <th>NAME_YIELD_GROUP_nan</th>
+      <th>PRODUCT_COMBINATION_Card Street</th>
+      <th>PRODUCT_COMBINATION_Card X-Sell</th>
+      <th>PRODUCT_COMBINATION_Cash</th>
+      <th>PRODUCT_COMBINATION_Cash Street: high</th>
+      <th>PRODUCT_COMBINATION_Cash Street: low</th>
+      <th>PRODUCT_COMBINATION_Cash Street: middle</th>
+      <th>PRODUCT_COMBINATION_Cash X-Sell: high</th>
+      <th>PRODUCT_COMBINATION_Cash X-Sell: low</th>
+      <th>PRODUCT_COMBINATION_Cash X-Sell: middle</th>
+      <th>PRODUCT_COMBINATION_POS household with interest</th>
+      <th>PRODUCT_COMBINATION_POS household without interest</th>
+      <th>PRODUCT_COMBINATION_POS industry with interest</th>
+      <th>PRODUCT_COMBINATION_POS industry without interest</th>
+      <th>PRODUCT_COMBINATION_POS mobile with interest</th>
+      <th>PRODUCT_COMBINATION_POS mobile without interest</th>
+      <th>PRODUCT_COMBINATION_POS other with interest</th>
+      <th>PRODUCT_COMBINATION_POS others without interest</th>
+      <th>PRODUCT_COMBINATION_nan</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>var</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>sum</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>...</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.50</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.00</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.50</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.00</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.00</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.00</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>0.0</td>
+      <td>44617.5</td>
+      <td>22308.75</td>
+      <td>0.0</td>
+      <td>40153.5</td>
+      <td>20076.75</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>10</td>
+      <td>11</td>
+      <td>10.500000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-315</td>
+      <td>-536.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.500000</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 189 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.4 Rename multiindex columns:</span>
+
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;PREV_&#39;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">prev_agg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.5</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">shape</span>      <span class="c1"># (338857, 189)</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(338857, 189)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;PREV_AMT_ANNUITY_MIN&#39;, &#39;PREV_AMT_ANNUITY_MAX&#39;, &#39;PREV_AMT_ANNUITY_MEAN&#39;,
+       &#39;PREV_AMT_APPLICATION_MIN&#39;, &#39;PREV_AMT_APPLICATION_MAX&#39;,
+       &#39;PREV_AMT_APPLICATION_MEAN&#39;, &#39;PREV_AMT_CREDIT_MIN&#39;,
+       &#39;PREV_AMT_CREDIT_MAX&#39;, &#39;PREV_AMT_CREDIT_MEAN&#39;,
+       &#39;PREV_APP_CREDIT_PERC_MIN&#39;,
+       ...
+       &#39;PREV_PRODUCT_COMBINATION_Cash X-Sell: middle_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS household with interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS household without interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS industry with interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS industry without interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS mobile with interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS mobile without interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS other with interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_POS others without interest_MEAN&#39;,
+       &#39;PREV_PRODUCT_COMBINATION_nan_MEAN&#39;],
+      dtype=&#39;object&#39;, length=189)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PREV_AMT_ANNUITY_MIN</th>
+      <th>PREV_AMT_ANNUITY_MAX</th>
+      <th>PREV_AMT_ANNUITY_MEAN</th>
+      <th>PREV_AMT_APPLICATION_MIN</th>
+      <th>PREV_AMT_APPLICATION_MAX</th>
+      <th>PREV_AMT_APPLICATION_MEAN</th>
+      <th>PREV_AMT_CREDIT_MIN</th>
+      <th>PREV_AMT_CREDIT_MAX</th>
+      <th>PREV_AMT_CREDIT_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_MIN</th>
+      <th>PREV_APP_CREDIT_PERC_MAX</th>
+      <th>PREV_APP_CREDIT_PERC_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_VAR</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MIN</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MAX</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_AMT_GOODS_PRICE_MIN</th>
+      <th>PREV_AMT_GOODS_PRICE_MAX</th>
+      <th>PREV_AMT_GOODS_PRICE_MEAN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MIN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MAX</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_DAYS_DECISION_MIN</th>
+      <th>PREV_DAYS_DECISION_MAX</th>
+      <th>PREV_DAYS_DECISION_MEAN</th>
+      <th>PREV_CNT_PAYMENT_MEAN</th>
+      <th>PREV_CNT_PAYMENT_SUM</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Cash loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Consumer loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Revolving loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_XNA_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_nan_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_FRIDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_MONDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SATURDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SUNDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_THURSDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_TUESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_WEDNESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_nan_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_N_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_Y_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_nan_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Building a house or an annex_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Business development_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a garage_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land_MEAN</th>
+      <th>...</th>
+      <th>PREV_NAME_PORTFOLIO_nan_MEAN</th>
+      <th>PREV_NAME_PRODUCT_TYPE_XNA_MEAN</th>
+      <th>PREV_NAME_PRODUCT_TYPE_walk-in_MEAN</th>
+      <th>PREV_NAME_PRODUCT_TYPE_x-sell_MEAN</th>
+      <th>PREV_NAME_PRODUCT_TYPE_nan_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_AP+ (Cash loan)_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Car dealer_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Channel of corporate sales_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Contact center_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Country-wide_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Credit and cash offices_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Regional / Local_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_Stone_MEAN</th>
+      <th>PREV_CHANNEL_TYPE_nan_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Auto technology_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Clothing_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Connectivity_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Construction_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Consumer electronics_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Furniture_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Industry_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Jewelry_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_MLM partners_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_Tourism_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_XNA_MEAN</th>
+      <th>PREV_NAME_SELLER_INDUSTRY_nan_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_XNA_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_high_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_low_action_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_low_normal_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_middle_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_nan_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Card Street_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Card X-Sell_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: high_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: low_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: middle_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: high_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: low_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: middle_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS household with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS household without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS industry with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS industry without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS mobile with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS mobile without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS other with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS others without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_nan_MEAN</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.50</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.00</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.50</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.00</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.00</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.00</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>0.0</td>
+      <td>44617.5</td>
+      <td>22308.75</td>
+      <td>0.0</td>
+      <td>40153.5</td>
+      <td>20076.75</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>10</td>
+      <td>11</td>
+      <td>10.500000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-315</td>
+      <td>-536.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.500000</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 189 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="more-aggregations">
+<h2>More aggregations<a class="headerlink" href="#more-aggregations" title="Permalink to this headline">¶</a></h2>
+<blockquote>Table, <i>prev_agg</i>, from previous operations is our main table that we will carry to next exercise. To this aggregated table, we add more aggregations. <br>We will perform aggregations on two subsets of data. On both the subsets on numerical features only. One subset is extracted by setting <i>NAME_CONTRACT_STATUS_Approved == 1</i> and the other subset is extracted by setting <i>NAME_CONTRACT_STATUS_Refused == 1</i>.<br><br>It is as if we are trying to extract the behaviour of those whose previous applications have been approved and those whose previous applications have NOT been approved.</blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.0 Previous Applications: Summarise numerical features from Approved Applications</span>
+
+<span class="n">approved</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;NAME_CONTRACT_STATUS_Approved&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">approved_agg</span> <span class="o">=</span> <span class="n">approved</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">num_aggregations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.1 Look at the aggregated results:</span>
+
+<span class="n">approved_agg</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">approved_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MultiIndex([(            &#39;AMT_ANNUITY&#39;,  &#39;min&#39;),
+            (            &#39;AMT_ANNUITY&#39;,  &#39;max&#39;),
+            (            &#39;AMT_ANNUITY&#39;, &#39;mean&#39;),
+            (        &#39;AMT_APPLICATION&#39;,  &#39;min&#39;),
+            (        &#39;AMT_APPLICATION&#39;,  &#39;max&#39;),
+            (        &#39;AMT_APPLICATION&#39;, &#39;mean&#39;),
+            (             &#39;AMT_CREDIT&#39;,  &#39;min&#39;),
+            (             &#39;AMT_CREDIT&#39;,  &#39;max&#39;),
+            (             &#39;AMT_CREDIT&#39;, &#39;mean&#39;),
+            (        &#39;APP_CREDIT_PERC&#39;,  &#39;min&#39;),
+            (        &#39;APP_CREDIT_PERC&#39;,  &#39;max&#39;),
+            (        &#39;APP_CREDIT_PERC&#39;, &#39;mean&#39;),
+            (        &#39;APP_CREDIT_PERC&#39;,  &#39;var&#39;),
+            (       &#39;AMT_DOWN_PAYMENT&#39;,  &#39;min&#39;),
+            (       &#39;AMT_DOWN_PAYMENT&#39;,  &#39;max&#39;),
+            (       &#39;AMT_DOWN_PAYMENT&#39;, &#39;mean&#39;),
+            (        &#39;AMT_GOODS_PRICE&#39;,  &#39;min&#39;),
+            (        &#39;AMT_GOODS_PRICE&#39;,  &#39;max&#39;),
+            (        &#39;AMT_GOODS_PRICE&#39;, &#39;mean&#39;),
+            (&#39;HOUR_APPR_PROCESS_START&#39;,  &#39;min&#39;),
+            (&#39;HOUR_APPR_PROCESS_START&#39;,  &#39;max&#39;),
+            (&#39;HOUR_APPR_PROCESS_START&#39;, &#39;mean&#39;),
+            (      &#39;RATE_DOWN_PAYMENT&#39;,  &#39;min&#39;),
+            (      &#39;RATE_DOWN_PAYMENT&#39;,  &#39;max&#39;),
+            (      &#39;RATE_DOWN_PAYMENT&#39;, &#39;mean&#39;),
+            (          &#39;DAYS_DECISION&#39;,  &#39;min&#39;),
+            (          &#39;DAYS_DECISION&#39;,  &#39;max&#39;),
+            (          &#39;DAYS_DECISION&#39;, &#39;mean&#39;),
+            (            &#39;CNT_PAYMENT&#39;, &#39;mean&#39;),
+            (            &#39;CNT_PAYMENT&#39;,  &#39;sum&#39;)],
+           )
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">AMT_ANNUITY</th>
+      <th colspan="3" halign="left">AMT_APPLICATION</th>
+      <th colspan="3" halign="left">AMT_CREDIT</th>
+      <th colspan="4" halign="left">APP_CREDIT_PERC</th>
+      <th colspan="3" halign="left">AMT_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">AMT_GOODS_PRICE</th>
+      <th colspan="3" halign="left">HOUR_APPR_PROCESS_START</th>
+      <th colspan="3" halign="left">RATE_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">DAYS_DECISION</th>
+      <th colspan="2" halign="left">CNT_PAYMENT</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>var</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>sum</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.0</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11.000000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-757</td>
+      <td>-757.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.2 Rename multi-index column names:</span>
+
+<span class="n">approved_agg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;APPROVED_&#39;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">approved_agg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.2.1 Look at it again:</span>
+
+<span class="n">approved_agg</span><span class="o">.</span><span class="n">shape</span>     <span class="c1"># (337698, 30)</span>
+<span class="n">approved_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(337698, 30)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>APPROVED_AMT_ANNUITY_MIN</th>
+      <th>APPROVED_AMT_ANNUITY_MAX</th>
+      <th>APPROVED_AMT_ANNUITY_MEAN</th>
+      <th>APPROVED_AMT_APPLICATION_MIN</th>
+      <th>APPROVED_AMT_APPLICATION_MAX</th>
+      <th>APPROVED_AMT_APPLICATION_MEAN</th>
+      <th>APPROVED_AMT_CREDIT_MIN</th>
+      <th>APPROVED_AMT_CREDIT_MAX</th>
+      <th>APPROVED_AMT_CREDIT_MEAN</th>
+      <th>APPROVED_APP_CREDIT_PERC_MIN</th>
+      <th>APPROVED_APP_CREDIT_PERC_MAX</th>
+      <th>APPROVED_APP_CREDIT_PERC_MEAN</th>
+      <th>APPROVED_APP_CREDIT_PERC_VAR</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MIN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MAX</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MEAN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_DAYS_DECISION_MIN</th>
+      <th>APPROVED_DAYS_DECISION_MAX</th>
+      <th>APPROVED_DAYS_DECISION_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_SUM</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.0</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>11</td>
+      <td>11</td>
+      <td>11.000000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-757</td>
+      <td>-757.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.3 Join &#39;approved_agg&#39; with &#39;prev_agg&#39;.</span>
+
+<span class="n">prev_agg</span> <span class="o">=</span> <span class="n">prev_agg</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>                      <span class="c1"># prev_agg is on the left</span>
+                         <span class="n">approved_agg</span><span class="p">,</span>         <span class="c1"># table on the right</span>
+                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>           <span class="c1"># Join on left table. All its rows remain</span>
+                         <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SK_ID_CURR&#39;</span>       <span class="c1"># Joining key. </span>
+                        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.3.1</span>
+
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">shape</span>     <span class="c1"># (338857, 219)</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(338857, 219)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PREV_AMT_ANNUITY_MIN</th>
+      <th>PREV_AMT_ANNUITY_MAX</th>
+      <th>PREV_AMT_ANNUITY_MEAN</th>
+      <th>PREV_AMT_APPLICATION_MIN</th>
+      <th>PREV_AMT_APPLICATION_MAX</th>
+      <th>PREV_AMT_APPLICATION_MEAN</th>
+      <th>PREV_AMT_CREDIT_MIN</th>
+      <th>PREV_AMT_CREDIT_MAX</th>
+      <th>PREV_AMT_CREDIT_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_MIN</th>
+      <th>PREV_APP_CREDIT_PERC_MAX</th>
+      <th>PREV_APP_CREDIT_PERC_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_VAR</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MIN</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MAX</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_AMT_GOODS_PRICE_MIN</th>
+      <th>PREV_AMT_GOODS_PRICE_MAX</th>
+      <th>PREV_AMT_GOODS_PRICE_MEAN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MIN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MAX</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_DAYS_DECISION_MIN</th>
+      <th>PREV_DAYS_DECISION_MAX</th>
+      <th>PREV_DAYS_DECISION_MEAN</th>
+      <th>PREV_CNT_PAYMENT_MEAN</th>
+      <th>PREV_CNT_PAYMENT_SUM</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Cash loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Consumer loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Revolving loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_XNA_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_nan_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_FRIDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_MONDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SATURDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SUNDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_THURSDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_TUESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_WEDNESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_nan_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_N_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_Y_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_nan_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Building a house or an annex_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Business development_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a garage_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land_MEAN</th>
+      <th>...</th>
+      <th>PREV_NAME_YIELD_GROUP_middle_MEAN</th>
+      <th>PREV_NAME_YIELD_GROUP_nan_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Card Street_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Card X-Sell_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: high_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: low_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash Street: middle_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: high_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: low_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_Cash X-Sell: middle_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS household with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS household without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS industry with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS industry without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS mobile with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS mobile without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS other with interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_POS others without interest_MEAN</th>
+      <th>PREV_PRODUCT_COMBINATION_nan_MEAN</th>
+      <th>APPROVED_AMT_ANNUITY_MIN</th>
+      <th>APPROVED_AMT_ANNUITY_MAX</th>
+      <th>APPROVED_AMT_ANNUITY_MEAN</th>
+      <th>APPROVED_AMT_APPLICATION_MIN</th>
+      <th>APPROVED_AMT_APPLICATION_MAX</th>
+      <th>APPROVED_AMT_APPLICATION_MEAN</th>
+      <th>APPROVED_AMT_CREDIT_MIN</th>
+      <th>APPROVED_AMT_CREDIT_MAX</th>
+      <th>APPROVED_AMT_CREDIT_MEAN</th>
+      <th>APPROVED_APP_CREDIT_PERC_MIN</th>
+      <th>APPROVED_APP_CREDIT_PERC_MAX</th>
+      <th>APPROVED_APP_CREDIT_PERC_MEAN</th>
+      <th>APPROVED_APP_CREDIT_PERC_VAR</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MIN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MAX</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MEAN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_DAYS_DECISION_MIN</th>
+      <th>APPROVED_DAYS_DECISION_MAX</th>
+      <th>APPROVED_DAYS_DECISION_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_SUM</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.50</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.00</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740.0</td>
+      <td>-1740.0</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606.0</td>
+      <td>-606.0</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.50</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.00</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.666667</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.0</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12.0</td>
+      <td>17.0</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341.0</td>
+      <td>-746.0</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.00</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.00</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815.0</td>
+      <td>-815.0</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>0.0</td>
+      <td>44617.5</td>
+      <td>22308.75</td>
+      <td>0.0</td>
+      <td>40153.5</td>
+      <td>20076.75</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>10</td>
+      <td>11</td>
+      <td>10.500000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-315</td>
+      <td>-536.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>40153.5</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>11.0</td>
+      <td>11.0</td>
+      <td>11.000000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757.0</td>
+      <td>-757.0</td>
+      <td>-757.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 219 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.4 Similarly for refused applications perform aggregations of numerical features:</span>
+
+<span class="n">refused</span> <span class="o">=</span> <span class="n">prev</span><span class="p">[</span><span class="n">prev</span><span class="p">[</span><span class="s1">&#39;NAME_CONTRACT_STATUS_Refused&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">refused_agg</span> <span class="o">=</span> <span class="n">refused</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;SK_ID_CURR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">num_aggregations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.4.1</span>
+
+<span class="n">refused_agg</span><span class="o">.</span><span class="n">shape</span>      <span class="c1"># (118277, 30)</span>
+<span class="n">refused_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(118277, 30)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">AMT_ANNUITY</th>
+      <th colspan="3" halign="left">AMT_APPLICATION</th>
+      <th colspan="3" halign="left">AMT_CREDIT</th>
+      <th colspan="4" halign="left">APP_CREDIT_PERC</th>
+      <th colspan="3" halign="left">AMT_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">AMT_GOODS_PRICE</th>
+      <th colspan="3" halign="left">HOUR_APPR_PROCESS_START</th>
+      <th colspan="3" halign="left">RATE_DOWN_PAYMENT</th>
+      <th colspan="3" halign="left">DAYS_DECISION</th>
+      <th colspan="2" halign="left">CNT_PAYMENT</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>var</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>min</th>
+      <th>max</th>
+      <th>mean</th>
+      <th>mean</th>
+      <th>sum</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100006</th>
+      <td>32696.100</td>
+      <td>32696.100</td>
+      <td>32696.100</td>
+      <td>688500.000000</td>
+      <td>688500.0</td>
+      <td>688500.000000</td>
+      <td>906615.000</td>
+      <td>906615.0</td>
+      <td>906615.0000</td>
+      <td>0.759418</td>
+      <td>0.759418</td>
+      <td>0.759418</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>688500.000</td>
+      <td>688500.0</td>
+      <td>688500.0000</td>
+      <td>15</td>
+      <td>15</td>
+      <td>15.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-181</td>
+      <td>-181</td>
+      <td>-181.000</td>
+      <td>48.000000</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>100011</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-1162</td>
+      <td>-1162</td>
+      <td>-1162.000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100027</th>
+      <td>22556.475</td>
+      <td>22556.475</td>
+      <td>22556.475</td>
+      <td>225000.000000</td>
+      <td>225000.0</td>
+      <td>225000.000000</td>
+      <td>239850.000</td>
+      <td>239850.0</td>
+      <td>239850.0000</td>
+      <td>0.938086</td>
+      <td>0.938086</td>
+      <td>0.938086</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>225000.000</td>
+      <td>225000.0</td>
+      <td>225000.0000</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-181</td>
+      <td>-181</td>
+      <td>-181.000</td>
+      <td>12.000000</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>100030</th>
+      <td>2826.450</td>
+      <td>6176.925</td>
+      <td>4073.265</td>
+      <td>21969.224609</td>
+      <td>43870.5</td>
+      <td>33767.121094</td>
+      <td>21969.225</td>
+      <td>43870.5</td>
+      <td>32533.2225</td>
+      <td>1.000000</td>
+      <td>1.200580</td>
+      <td>1.042280</td>
+      <td>0.005227</td>
+      <td>0.0</td>
+      <td>6714.0</td>
+      <td>1344.6</td>
+      <td>21969.225</td>
+      <td>43870.5</td>
+      <td>33767.1225</td>
+      <td>7</td>
+      <td>16</td>
+      <td>12.500</td>
+      <td>0.0</td>
+      <td>0.210919</td>
+      <td>0.042874</td>
+      <td>-2689</td>
+      <td>-840</td>
+      <td>-2053.900</td>
+      <td>9.833333</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>100035</th>
+      <td>22308.750</td>
+      <td>33238.800</td>
+      <td>27773.775</td>
+      <td>0.000000</td>
+      <td>1260000.0</td>
+      <td>241875.000000</td>
+      <td>0.000</td>
+      <td>1260000.0</td>
+      <td>241875.0000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>675000.000</td>
+      <td>1260000.0</td>
+      <td>967500.0000</td>
+      <td>11</td>
+      <td>14</td>
+      <td>12.375</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-160</td>
+      <td>-119</td>
+      <td>-143.375</td>
+      <td>54.000000</td>
+      <td>108.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 6.5</span>
+
+<span class="n">refused_agg</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;REFUSED_&#39;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">refused_agg</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+<span class="n">refused_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">refused_agg</span><span class="o">.</span><span class="n">shape</span>   <span class="c1"># (118277, 30)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>REFUSED_AMT_ANNUITY_MIN</th>
+      <th>REFUSED_AMT_ANNUITY_MAX</th>
+      <th>REFUSED_AMT_ANNUITY_MEAN</th>
+      <th>REFUSED_AMT_APPLICATION_MIN</th>
+      <th>REFUSED_AMT_APPLICATION_MAX</th>
+      <th>REFUSED_AMT_APPLICATION_MEAN</th>
+      <th>REFUSED_AMT_CREDIT_MIN</th>
+      <th>REFUSED_AMT_CREDIT_MAX</th>
+      <th>REFUSED_AMT_CREDIT_MEAN</th>
+      <th>REFUSED_APP_CREDIT_PERC_MIN</th>
+      <th>REFUSED_APP_CREDIT_PERC_MAX</th>
+      <th>REFUSED_APP_CREDIT_PERC_MEAN</th>
+      <th>REFUSED_APP_CREDIT_PERC_VAR</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MIN</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MAX</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MIN</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MAX</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MEAN</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MIN</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MAX</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>REFUSED_DAYS_DECISION_MIN</th>
+      <th>REFUSED_DAYS_DECISION_MAX</th>
+      <th>REFUSED_DAYS_DECISION_MEAN</th>
+      <th>REFUSED_CNT_PAYMENT_MEAN</th>
+      <th>REFUSED_CNT_PAYMENT_SUM</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100006</th>
+      <td>32696.100</td>
+      <td>32696.100</td>
+      <td>32696.100</td>
+      <td>688500.000000</td>
+      <td>688500.0</td>
+      <td>688500.000000</td>
+      <td>906615.000</td>
+      <td>906615.0</td>
+      <td>906615.0000</td>
+      <td>0.759418</td>
+      <td>0.759418</td>
+      <td>0.759418</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>688500.000</td>
+      <td>688500.0</td>
+      <td>688500.0000</td>
+      <td>15</td>
+      <td>15</td>
+      <td>15.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-181</td>
+      <td>-181</td>
+      <td>-181.000</td>
+      <td>48.000000</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>100011</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-1162</td>
+      <td>-1162</td>
+      <td>-1162.000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>100027</th>
+      <td>22556.475</td>
+      <td>22556.475</td>
+      <td>22556.475</td>
+      <td>225000.000000</td>
+      <td>225000.0</td>
+      <td>225000.000000</td>
+      <td>239850.000</td>
+      <td>239850.0</td>
+      <td>239850.0000</td>
+      <td>0.938086</td>
+      <td>0.938086</td>
+      <td>0.938086</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>225000.000</td>
+      <td>225000.0</td>
+      <td>225000.0000</td>
+      <td>14</td>
+      <td>14</td>
+      <td>14.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-181</td>
+      <td>-181</td>
+      <td>-181.000</td>
+      <td>12.000000</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>100030</th>
+      <td>2826.450</td>
+      <td>6176.925</td>
+      <td>4073.265</td>
+      <td>21969.224609</td>
+      <td>43870.5</td>
+      <td>33767.121094</td>
+      <td>21969.225</td>
+      <td>43870.5</td>
+      <td>32533.2225</td>
+      <td>1.000000</td>
+      <td>1.200580</td>
+      <td>1.042280</td>
+      <td>0.005227</td>
+      <td>0.0</td>
+      <td>6714.0</td>
+      <td>1344.6</td>
+      <td>21969.225</td>
+      <td>43870.5</td>
+      <td>33767.1225</td>
+      <td>7</td>
+      <td>16</td>
+      <td>12.500</td>
+      <td>0.0</td>
+      <td>0.210919</td>
+      <td>0.042874</td>
+      <td>-2689</td>
+      <td>-840</td>
+      <td>-2053.900</td>
+      <td>9.833333</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>100035</th>
+      <td>22308.750</td>
+      <td>33238.800</td>
+      <td>27773.775</td>
+      <td>0.000000</td>
+      <td>1260000.0</td>
+      <td>241875.000000</td>
+      <td>0.000</td>
+      <td>1260000.0</td>
+      <td>241875.0000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>675000.000</td>
+      <td>1260000.0</td>
+      <td>967500.0000</td>
+      <td>11</td>
+      <td>14</td>
+      <td>12.375</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-160</td>
+      <td>-119</td>
+      <td>-143.375</td>
+      <td>54.000000</td>
+      <td>108.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(118277, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7.0 Join refused_agg with prev_agg:</span>
+
+<span class="n">prev_agg</span> <span class="o">=</span> <span class="n">prev_agg</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>                     <span class="c1"># prev_agg: left</span>
+                         <span class="n">refused_agg</span><span class="p">,</span>         <span class="c1"># table on the right</span>
+                         <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+                         <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SK_ID_CURR&#39;</span>
+                        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 7.1 Our final table:</span>
+
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">shape</span>     <span class="c1"># 338857, 249)</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(338857, 249)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PREV_AMT_ANNUITY_MIN</th>
+      <th>PREV_AMT_ANNUITY_MAX</th>
+      <th>PREV_AMT_ANNUITY_MEAN</th>
+      <th>PREV_AMT_APPLICATION_MIN</th>
+      <th>PREV_AMT_APPLICATION_MAX</th>
+      <th>PREV_AMT_APPLICATION_MEAN</th>
+      <th>PREV_AMT_CREDIT_MIN</th>
+      <th>PREV_AMT_CREDIT_MAX</th>
+      <th>PREV_AMT_CREDIT_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_MIN</th>
+      <th>PREV_APP_CREDIT_PERC_MAX</th>
+      <th>PREV_APP_CREDIT_PERC_MEAN</th>
+      <th>PREV_APP_CREDIT_PERC_VAR</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MIN</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MAX</th>
+      <th>PREV_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_AMT_GOODS_PRICE_MIN</th>
+      <th>PREV_AMT_GOODS_PRICE_MAX</th>
+      <th>PREV_AMT_GOODS_PRICE_MEAN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>PREV_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MIN</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MAX</th>
+      <th>PREV_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>PREV_DAYS_DECISION_MIN</th>
+      <th>PREV_DAYS_DECISION_MAX</th>
+      <th>PREV_DAYS_DECISION_MEAN</th>
+      <th>PREV_CNT_PAYMENT_MEAN</th>
+      <th>PREV_CNT_PAYMENT_SUM</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Cash loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Consumer loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_Revolving loans_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_XNA_MEAN</th>
+      <th>PREV_NAME_CONTRACT_TYPE_nan_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_FRIDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_MONDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SATURDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_SUNDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_THURSDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_TUESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_WEDNESDAY_MEAN</th>
+      <th>PREV_WEEKDAY_APPR_PROCESS_START_nan_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_N_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_Y_MEAN</th>
+      <th>PREV_FLAG_LAST_APPL_PER_CONTRACT_nan_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Building a house or an annex_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Business development_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a garage_MEAN</th>
+      <th>PREV_NAME_CASH_LOAN_PURPOSE_Buying a holiday home / land_MEAN</th>
+      <th>...</th>
+      <th>APPROVED_APP_CREDIT_PERC_MAX</th>
+      <th>APPROVED_APP_CREDIT_PERC_MEAN</th>
+      <th>APPROVED_APP_CREDIT_PERC_VAR</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MIN</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MAX</th>
+      <th>APPROVED_AMT_GOODS_PRICE_MEAN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>APPROVED_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MIN</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MAX</th>
+      <th>APPROVED_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>APPROVED_DAYS_DECISION_MIN</th>
+      <th>APPROVED_DAYS_DECISION_MAX</th>
+      <th>APPROVED_DAYS_DECISION_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_MEAN</th>
+      <th>APPROVED_CNT_PAYMENT_SUM</th>
+      <th>REFUSED_AMT_ANNUITY_MIN</th>
+      <th>REFUSED_AMT_ANNUITY_MAX</th>
+      <th>REFUSED_AMT_ANNUITY_MEAN</th>
+      <th>REFUSED_AMT_APPLICATION_MIN</th>
+      <th>REFUSED_AMT_APPLICATION_MAX</th>
+      <th>REFUSED_AMT_APPLICATION_MEAN</th>
+      <th>REFUSED_AMT_CREDIT_MIN</th>
+      <th>REFUSED_AMT_CREDIT_MAX</th>
+      <th>REFUSED_AMT_CREDIT_MEAN</th>
+      <th>REFUSED_APP_CREDIT_PERC_MIN</th>
+      <th>REFUSED_APP_CREDIT_PERC_MAX</th>
+      <th>REFUSED_APP_CREDIT_PERC_MEAN</th>
+      <th>REFUSED_APP_CREDIT_PERC_VAR</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MIN</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MAX</th>
+      <th>REFUSED_AMT_DOWN_PAYMENT_MEAN</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MIN</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MAX</th>
+      <th>REFUSED_AMT_GOODS_PRICE_MEAN</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MIN</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MAX</th>
+      <th>REFUSED_HOUR_APPR_PROCESS_START_MEAN</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MIN</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MAX</th>
+      <th>REFUSED_RATE_DOWN_PAYMENT_MEAN</th>
+      <th>REFUSED_DAYS_DECISION_MIN</th>
+      <th>REFUSED_DAYS_DECISION_MAX</th>
+      <th>REFUSED_DAYS_DECISION_MEAN</th>
+      <th>REFUSED_CNT_PAYMENT_MEAN</th>
+      <th>REFUSED_CNT_PAYMENT_SUM</th>
+    </tr>
+    <tr>
+      <th>SK_ID_CURR</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100001</th>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>3951.000</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.50</td>
+      <td>23787.0</td>
+      <td>23787.0</td>
+      <td>23787.00</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13</td>
+      <td>13</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740</td>
+      <td>-1740</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.044079</td>
+      <td>1.044079</td>
+      <td>NaN</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>2520.0</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>24835.5</td>
+      <td>13.0</td>
+      <td>13.0</td>
+      <td>13.000000</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>0.104326</td>
+      <td>-1740.0</td>
+      <td>-1740.0</td>
+      <td>-1740.0</td>
+      <td>8.0</td>
+      <td>8.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100002</th>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>9251.775</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.00</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606</td>
+      <td>-606</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>179055.0</td>
+      <td>9.0</td>
+      <td>9.0</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-606.0</td>
+      <td>-606.0</td>
+      <td>-606.0</td>
+      <td>24.0</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100003</th>
+      <td>6737.310</td>
+      <td>98356.995</td>
+      <td>56553.990</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.50</td>
+      <td>68053.5</td>
+      <td>1035882.0</td>
+      <td>484191.00</td>
+      <td>0.868825</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12</td>
+      <td>17</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341</td>
+      <td>-746</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.011109</td>
+      <td>0.949329</td>
+      <td>0.005324</td>
+      <td>0.0</td>
+      <td>6885.0</td>
+      <td>3442.5</td>
+      <td>68809.5</td>
+      <td>900000.0</td>
+      <td>435436.5</td>
+      <td>12.0</td>
+      <td>17.0</td>
+      <td>14.666667</td>
+      <td>0.000000</td>
+      <td>0.100061</td>
+      <td>0.050030</td>
+      <td>-2341.0</td>
+      <td>-746.0</td>
+      <td>-1305.0</td>
+      <td>10.0</td>
+      <td>30.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100004</th>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>5357.250</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.00</td>
+      <td>20106.0</td>
+      <td>20106.0</td>
+      <td>20106.00</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815</td>
+      <td>-815</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.207699</td>
+      <td>1.207699</td>
+      <td>NaN</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>4860.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>24282.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.000000</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>0.212008</td>
+      <td>-815.0</td>
+      <td>-815.0</td>
+      <td>-815.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>100005</th>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>4813.200</td>
+      <td>0.0</td>
+      <td>44617.5</td>
+      <td>22308.75</td>
+      <td>0.0</td>
+      <td>40153.5</td>
+      <td>20076.75</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>10</td>
+      <td>11</td>
+      <td>10.500000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757</td>
+      <td>-315</td>
+      <td>-536.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>0.500000</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.500000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>1.111173</td>
+      <td>1.111173</td>
+      <td>NaN</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>4464.0</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>44617.5</td>
+      <td>11.0</td>
+      <td>11.0</td>
+      <td>11.000000</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>0.108964</td>
+      <td>-757.0</td>
+      <td>-757.0</td>
+      <td>-757.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 249 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 8.0 Save the results for subsequent use:</span>
+<span class="n">prev_agg</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;processed_prev_agg.csv.zip&quot;</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####################</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="pos_cash_balance.html" title="previous page">POS Cash balance</a>
+    <a class='right-next' id="next-link" href="credit_card_balance.html" title="next page">Credit Card balance data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
