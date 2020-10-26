@@ -1,0 +1,4167 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Process train and test files &#8212; Assessing Home Credit Default Risk</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bureau and Bureau Balance data" href="bureau.html" />
+    <link rel="prev" title="Introduction: Home Credit Default Risk Competition" href="start-here-a-gentle-introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/FORE.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Assessing Home Credit Default Risk</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="landing-page.html">
+   Assessing Home Credit Default Risk
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html">
+   Introduction: Home Credit Default Risk Competition
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#data">
+   Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#feature-engineering">
+   Feature Engineering
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#baseline">
+   Baseline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="start-here-a-gentle-introduction.html#just-for-fun-light-gradient-boosting-machine">
+   Just for Fun: Light Gradient Boosting Machine
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process train/test
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Process train and test files
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Bureau data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bureau.html">
+   Bureau and Bureau Balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process POS data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pos_cash_balance.html">
+   POS Cash balance
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Earlier applications data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="previous_applications.html">
+   Previous Applications
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Process Credit Card Data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="credit_card_balance.html">
+   Credit Card balance data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Installments payment data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="installments_payments.html">
+   Install payments
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Merging all processed data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="join_all_processed.html">
+   Joining all processed data
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/application_train_test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/application_train_test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-data">
+   About data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-descriptions">
+   Feature descriptions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="process-train-and-test-files">
+<h1>Process train and test files<a class="headerlink" href="#process-train-and-test-files" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-data">
+<h2>About data<a class="headerlink" href="#about-data" title="Permalink to this headline">¶</a></h2>
+<blockquote><i>application_train/application_test</i>: This is main training and testing data with information about each loan application at Home Credit. Every loan has its own row and is identified by the feature <i>SK_ID_CURR</i>. The training application data comes with the TARGET indicating 0: the loan was repaid or 1: the loan was not repaid. Feature descriptions are as below. These have been taken from file <i>'HomeCredit_columns_description.csv'>/i>. For a more accurate description, please refer to the file.</blockquote> </div>
+<div class="section" id="feature-descriptions">
+<h2>Feature descriptions<a class="headerlink" href="#feature-descriptions" title="Permalink to this headline">¶</a></h2>
+<blockquote><p style="font-size:13px">
+SK_ID_CURR: 	ID of loan in our sample<br>
+TARGET: 	Target variable (1 - client with payment difficulties: he/she had late payment more than X days on at least one of the first Y installments of the loan in our sample, 0 - all other cases)<br>
+NAME_CONTRACT_TYPE: 	Identification if loan is cash or revolving<br>
+CODE_GENDER: 	Gender of the client<br>
+FLAG_OWN_CAR: 	Flag if the client owns a car<br>
+FLAG_OWN_REALTY: 	Flag if client owns a house or flat<br>
+CNT_CHILDREN: 	Number of children the client has<br>
+AMT_INCOME_TOTAL: 	Income of the client<br>
+AMT_CREDIT: 	Credit amount of the loan<br>
+AMT_ANNUITY: 	Loan annuity<br>
+AMT_GOODS_PRICE: 	For consumer loans it is the price of the goods for which the loan is given<br>
+NAME_TYPE_SUITE: 	Who was accompanying client when he was applying for the loan<br>
+NAME_INCOME_TYPE: 	Clients income type (businessman, working, maternity leave,…)<br>
+NAME_EDUCATION_TYPE: 	Level of highest education the client achieved<br>
+NAME_FAMILY_STATUS: 	Family status of the client<br>
+NAME_HOUSING_TYPE: 	What is the housing situation of the client (renting, living with parents, ...)<br>
+REGION_POPULATION_RELATIVE: 	Normalized population of region where client lives (higher number means the client lives in more populated region)<br>
+DAYS_BIRTH: 	Client's age in days at the time of application<br>
+DAYS_EMPLOYED: 	How many days before the application the person started current employment<br>
+DAYS_REGISTRATION: 	How many days before the application did client change his registration<br>
+DAYS_ID_PUBLISH: 	How many days before the application did client change the identity document with which he applied for the loan<br>
+OWN_CAR_AGE: 	Age of client's car<br>
+FLAG_MOBIL: 	Did client provide mobile phone (1=YES, 0=NO)<br>
+FLAG_EMP_PHONE: 	Did client provide work phone (1=YES, 0=NO)<br>
+FLAG_WORK_PHONE: 	Did client provide home phone (1=YES, 0=NO)<br>
+FLAG_CONT_MOBILE: 	Was mobile phone reachable (1=YES, 0=NO)<br>
+FLAG_PHONE: 	Did client provide home phone (1=YES, 0=NO)<br>
+FLAG_EMAIL: 	Did client provide email (1=YES, 0=NO)<br>
+OCCUPATION_TYPE: 	What kind of occupation does the client have<br>
+CNT_FAM_MEMBERS: 	How many family members does client have<br>
+REGION_RATING_CLIENT: 	Our rating of the region where client lives (1,2,3)<br>
+REGION_RATING_CLIENT_W_CITY: 	Our rating of the region where client lives with taking city into account (1,2,3)<br>
+WEEKDAY_APPR_PROCESS_START: 	On which day of the week did the client apply for the loan<br>
+HOUR_APPR_PROCESS_START: 	Approximately at what hour did the client apply for the loan<br>
+REG_REGION_NOT_LIVE_REGION: 	Flag if client's permanent address does not match contact address (1=different, 0=same, at region level)<br>
+REG_REGION_NOT_WORK_REGION: 	Flag if client's permanent address does not match work address (1=different, 0=same, at region level)<br>
+LIVE_REGION_NOT_WORK_REGION: 	Flag if client's contact address does not match work address (1=different, 0=same, at region level)<br>
+REG_CITY_NOT_LIVE_CITY: 	Flag if client's permanent address does not match contact address (1=different, 0=same, at city level)<br>
+REG_CITY_NOT_WORK_CITY: 	Flag if client's permanent address does not match work address (1=different, 0=same, at city level)<br>
+LIVE_CITY_NOT_WORK_CITY: 	Flag if client's contact address does not match work address (1=different, 0=same, at city level)<br>
+ORGANIZATION_TYPE: 	Type of organization where client works<br>
+EXT_SOURCE_1: 	Normalized score from external data source<br>
+EXT_SOURCE_2: 	Normalized score from external data source<br>
+EXT_SOURCE_3: 	Normalized score from external data source<br>
+APARTMENTS_AVG: 	Normalized information about building where the client lives.<br>
+BASEMENTAREA_AVG: 	Normalized information about building where the client lives.<br>
+YEARS_BEGINEXPLUATATION_AVG: 	Normalized information about building where the client lives.<br>
+YEARS_BUILD_AVG: 	Normalized information about building where the client lives.<br>
+COMMONAREA_AVG: 	Normalized information about building where the client lives.<br>
+ELEVATORS_AVG: 	Normalized information about building where the client lives.<br>
+ENTRANCES_AVG: 	Normalized information about building where the client lives.<br>
+FLOORSMAX_AVG: 	Normalized information about building where the client lives.<br>
+FLOORSMIN_AVG: 	Normalized information about building where the client lives.<br>
+LANDAREA_AVG: 	Normalized information about building where the client lives.<br>
+LIVINGAPARTMENTS_AVG: 	Normalized information about building where the client lives.<br>
+LIVINGAREA_AVG: 	Normalized information about building where the client lives.<br>
+NONLIVINGAPARTMENTS_AVG: 	Normalized information about building where the client lives.<br>
+NONLIVINGAREA_AVG: 	Normalized information about building where the client lives.<br>
+APARTMENTS_MODE: 	Normalized information about building where the client lives.<br>
+BASEMENTAREA_MODE: 	Normalized information about building where the client lives.<br>
+YEARS_BEGINEXPLUATATION_MODE: 	Normalized information about building where the client lives.<br>
+YEARS_BUILD_MODE: 	Normalized information about building where the client lives<br>
+COMMONAREA_MODE: 	Normalized information about building where the client lives<br>
+ELEVATORS_MODE: 	Normalized information about building where the client lives<br>
+ENTRANCES_MODE: 	Normalized information about building where the client lives<br>
+FLOORSMAX_MODE: 	Normalized information about building where the client lives<br>
+FLOORSMIN_MODE: 	Normalized information about building where the client lives<br>
+LANDAREA_MODE: 	Normalized information about building where the client lives<br>
+LIVINGAPARTMENTS_MODE: 	Normalized information about building where the client lives<br>
+LIVINGAREA_MODE: 	Normalized information about building where the client lives<br>
+NONLIVINGAPARTMENTS_MODE: 	Normalized information about building where the client lives<br>
+NONLIVINGAREA_MODE: 	Normalized information about building where the client lives<br>
+APARTMENTS_MEDI: 	Normalized information about building where the client lives<br>
+BASEMENTAREA_MEDI: 	Normalized information about building where the client lives<br>
+YEARS_BEGINEXPLUATATION_MEDI: 	Normalized information about building where the client lives<br>
+YEARS_BUILD_MEDI: 	Normalized information about building where the client lives<br>
+COMMONAREA_MEDI: 	Normalized information about building where the client lives<br>
+ELEVATORS_MEDI: 	Normalized information about building where the client lives<br>
+ENTRANCES_MEDI: 	Normalized information about building where the client lives<br>
+FLOORSMAX_MEDI: 	Normalized information about building where the client lives<br>
+FLOORSMIN_MEDI: 	Normalized information about building where the client lives<br>
+LANDAREA_MEDI: 	Normalized information about building where the client lives<br>
+LIVINGAPARTMENTS_MEDI: 	Normalized information about building where the client lives<br>
+LIVINGAREA_MEDI: 	Normalized information about building where the client lives<br>
+NONLIVINGAPARTMENTS_MEDI: 	Normalized information about building where the client lives<br>
+NONLIVINGAREA_MEDI: 	Normalized information about building where the client lives<br>
+FONDKAPREMONT_MODE: 	Normalized information about building where the client lives<br>
+HOUSETYPE_MODE: 	Normalized information about building where the client lives<br>
+TOTALAREA_MODE: 	Normalized information about building where the client lives<br>
+WALLSMATERIAL_MODE: 	Normalized information about building where the client lives<br>
+EMERGENCYSTATE_MODE: 	Normalized information about building where the client lives<br>
+OBS_30_CNT_SOCIAL_CIRCLE: 	How many observation of client's social surroundings with observable 30 DPD (days past due) default<br>
+DEF_30_CNT_SOCIAL_CIRCLE: 	How many observation of client's social surroundings defaulted on 30 DPD (days past due) <br>
+OBS_60_CNT_SOCIAL_CIRCLE: 	How many observation of client's social surroundings with observable 60 DPD (days past due) default<br>
+DEF_60_CNT_SOCIAL_CIRCLE: 	How many observation of client's social surroundings defaulted on 60 (days past due) DPD<br>
+DAYS_LAST_PHONE_CHANGE: 	How many days before application did client change phone<br>
+FLAG_DOCUMENT_2: 	Did client provide document 2<br>
+FLAG_DOCUMENT_3: 	Did client provide document 3<br>
+FLAG_DOCUMENT_4: 	Did client provide document 4<br>
+FLAG_DOCUMENT_5: 	Did client provide document 5<br>
+FLAG_DOCUMENT_6: 	Did client provide document 6<br>
+FLAG_DOCUMENT_7: 	Did client provide document 7<br>
+FLAG_DOCUMENT_8: 	Did client provide document 8<br>
+FLAG_DOCUMENT_9: 	Did client provide document 9<br>
+FLAG_DOCUMENT_10: 	Did client provide document 10<br>
+FLAG_DOCUMENT_11: 	Did client provide document 11<br>
+FLAG_DOCUMENT_12: 	Did client provide document 12<br>
+FLAG_DOCUMENT_13: 	Did client provide document 13<br>
+FLAG_DOCUMENT_14: 	Did client provide document 14<br>
+FLAG_DOCUMENT_15: 	Did client provide document 15<br>
+FLAG_DOCUMENT_16: 	Did client provide document 16<br>
+FLAG_DOCUMENT_17: 	Did client provide document 17<br>
+FLAG_DOCUMENT_18: 	Did client provide document 18<br>
+FLAG_DOCUMENT_19: 	Did client provide document 19<br>
+FLAG_DOCUMENT_20: 	Did client provide document 20<br>
+FLAG_DOCUMENT_21: 	Did client provide document 21<br>
+AMT_REQ_CREDIT_BUREAU_HOUR: 	Number of enquiries to Credit Bureau about the client one hour before application<br>
+AMT_REQ_CREDIT_BUREAU_DAY: 	Number of enquiries to Credit Bureau about the client one day before application<br>
+AMT_REQ_CREDIT_BUREAU_WEEK: 	Number of enquiries to Credit Bureau about the client one week before applicationion)<br>
+AMT_REQ_CREDIT_BUREAU_MON: 	Number of enquiries to Credit Bureau about the client one month before application <br>
+AMT_REQ_CREDIT_BUREAU_QRT: 	Number of enquiries to Credit Bureau about the client 3 month before application <br>
+AMT_REQ_CREDIT_BUREAU_YEAR: 	Number of enquiries to Credit Bureau about the client one day year<br></p></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Last amended: 24rd October, 2020</span>
+<span class="c1"># Myfolder: C:\Users\Administrator\OneDrive\Documents\home_credit_default_risk</span>
+<span class="c1"># Objective: </span>
+<span class="c1">#           Solving Kaggle problem: Home Credit Default Risk</span>
+<span class="c1">#           Processing application train/test datasets</span>
+<span class="c1">#</span>
+<span class="c1"># Data Source: https://www.kaggle.com/c/home-credit-default-risk/data</span>
+<span class="c1"># Ref: https://www.kaggle.com/jsaguiar/lightgbm-with-simple-features</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.0 Libraries</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># 1.1 Reduce read data size</span>
+<span class="c1">#     There is a file reducing.py</span>
+<span class="c1">#      in this folder. A class</span>
+<span class="c1">#       in it is used to reduce</span>
+<span class="c1">#        dataframe size</span>
+<span class="c1">#     (Code modified to</span>
+<span class="c1">#      exclude &#39;category&#39; dtype)</span>
+<span class="c1">#     Refer: https://wkirgsn.github.io/2018/02/10/auto-downsizing-dtypes/</span>
+<span class="kn">import</span> <span class="nn">reducing</span>
+
+<span class="c1"># 1.2 Misc</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.3 In view of large dataset, some useful options</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.4 Display outputs from multiple commands from a jupyter cell</span>
+<span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.0 Onehot encoding (OHE) function. Uses pd.get_dummies()</span>
+<span class="c1">#     i) To transform &#39;object&#39; columns to dummies. </span>
+<span class="c1">#    ii) Treat NaN as one of the categories</span>
+<span class="c1">#   iii) Returns transformed-data and new-columns created</span>
+
+<span class="k">def</span> <span class="nf">one_hot_encoder</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    <span class="n">original_columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">categorical_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
+                        <span class="n">columns</span><span class="o">=</span> <span class="n">categorical_columns</span><span class="p">,</span>
+                        <span class="n">dummy_na</span><span class="o">=</span> <span class="n">nan_as_category</span>       <span class="c1"># Treat NaNs as category</span>
+                       <span class="p">)</span>
+    <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">original_columns</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">new_columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.1</span>
+<span class="n">pathToFolder</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">Administrator</span><span class="se">\\</span><span class="s2">OneDrive</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">home_credit_default_risk&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">pathToFolder</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2.2 Some constants</span>
+<span class="n">num_rows</span><span class="o">=</span><span class="kc">None</span>                <span class="c1"># Implies read all rows</span>
+<span class="n">nan_as_category</span> <span class="o">=</span> <span class="kc">True</span>       <span class="c1"># While transforming </span>
+                             <span class="c1">#   &#39;object&#39; columns to dummies</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.0 Read previous application data first</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                   <span class="s1">&#39;application_train.csv.zip&#39;</span><span class="p">,</span>
+                   <span class="n">nrows</span> <span class="o">=</span> <span class="n">num_rows</span>
+                   <span class="p">)</span>
+
+<span class="c1"># 3.0.1 Reduce memory usage by appropriately</span>
+<span class="c1">#       changing data-types per feature:</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">reducing</span><span class="o">.</span><span class="n">Reducer</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reduced df from 286.2271 MB to 199.7138 MB in 1.34 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.0 Read previous application data first</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+                      <span class="s1">&#39;application_test.csv.zip&#39;</span><span class="p">,</span>
+                       <span class="n">nrows</span> <span class="o">=</span> <span class="n">num_rows</span>
+                   <span class="p">)</span>
+
+<span class="c1"># 3.0.1 Reduce memory usage by appropriately</span>
+<span class="c1">#       changing data-types per feature:</span>
+
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">reducing</span><span class="o">.</span><span class="n">Reducer</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>reduced df from 44.9985 MB to 31.0527 MB in 0.25 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>   <span class="c1"># (307511, 122)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(307511, 122)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>TARGET</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>REGION_POPULATION_RELATIVE</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>OWN_CAR_AGE</th>
+      <th>FLAG_MOBIL</th>
+      <th>FLAG_EMP_PHONE</th>
+      <th>FLAG_WORK_PHONE</th>
+      <th>FLAG_CONT_MOBILE</th>
+      <th>FLAG_PHONE</th>
+      <th>FLAG_EMAIL</th>
+      <th>OCCUPATION_TYPE</th>
+      <th>CNT_FAM_MEMBERS</th>
+      <th>REGION_RATING_CLIENT</th>
+      <th>REGION_RATING_CLIENT_W_CITY</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>REG_REGION_NOT_LIVE_REGION</th>
+      <th>REG_REGION_NOT_WORK_REGION</th>
+      <th>LIVE_REGION_NOT_WORK_REGION</th>
+      <th>REG_CITY_NOT_LIVE_CITY</th>
+      <th>REG_CITY_NOT_WORK_CITY</th>
+      <th>LIVE_CITY_NOT_WORK_CITY</th>
+      <th>ORGANIZATION_TYPE</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>APARTMENTS_AVG</th>
+      <th>BASEMENTAREA_AVG</th>
+      <th>YEARS_BEGINEXPLUATATION_AVG</th>
+      <th>YEARS_BUILD_AVG</th>
+      <th>COMMONAREA_AVG</th>
+      <th>ELEVATORS_AVG</th>
+      <th>...</th>
+      <th>APARTMENTS_MEDI</th>
+      <th>BASEMENTAREA_MEDI</th>
+      <th>YEARS_BEGINEXPLUATATION_MEDI</th>
+      <th>YEARS_BUILD_MEDI</th>
+      <th>COMMONAREA_MEDI</th>
+      <th>ELEVATORS_MEDI</th>
+      <th>ENTRANCES_MEDI</th>
+      <th>FLOORSMAX_MEDI</th>
+      <th>FLOORSMIN_MEDI</th>
+      <th>LANDAREA_MEDI</th>
+      <th>LIVINGAPARTMENTS_MEDI</th>
+      <th>LIVINGAREA_MEDI</th>
+      <th>NONLIVINGAPARTMENTS_MEDI</th>
+      <th>NONLIVINGAREA_MEDI</th>
+      <th>FONDKAPREMONT_MODE</th>
+      <th>HOUSETYPE_MODE</th>
+      <th>TOTALAREA_MODE</th>
+      <th>WALLSMATERIAL_MODE</th>
+      <th>EMERGENCYSTATE_MODE</th>
+      <th>OBS_30_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_30_CNT_SOCIAL_CIRCLE</th>
+      <th>OBS_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>FLAG_DOCUMENT_2</th>
+      <th>FLAG_DOCUMENT_3</th>
+      <th>FLAG_DOCUMENT_4</th>
+      <th>FLAG_DOCUMENT_5</th>
+      <th>FLAG_DOCUMENT_6</th>
+      <th>FLAG_DOCUMENT_7</th>
+      <th>FLAG_DOCUMENT_8</th>
+      <th>FLAG_DOCUMENT_9</th>
+      <th>FLAG_DOCUMENT_10</th>
+      <th>FLAG_DOCUMENT_11</th>
+      <th>FLAG_DOCUMENT_12</th>
+      <th>FLAG_DOCUMENT_13</th>
+      <th>FLAG_DOCUMENT_14</th>
+      <th>FLAG_DOCUMENT_15</th>
+      <th>FLAG_DOCUMENT_16</th>
+      <th>FLAG_DOCUMENT_17</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100002</td>
+      <td>1</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>202500.0</td>
+      <td>406597.5</td>
+      <td>24700.5</td>
+      <td>351000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.018801</td>
+      <td>-9461</td>
+      <td>-637</td>
+      <td>-3648.0</td>
+      <td>-2120</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>0.0247</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6192</td>
+      <td>0.0143</td>
+      <td>0.00</td>
+      <td>...</td>
+      <td>0.0250</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6243</td>
+      <td>0.0144</td>
+      <td>0.00</td>
+      <td>0.0690</td>
+      <td>0.0833</td>
+      <td>0.1250</td>
+      <td>0.0375</td>
+      <td>0.0205</td>
+      <td>0.0193</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0149</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>-1134.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100003</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>N</td>
+      <td>0</td>
+      <td>270000.0</td>
+      <td>1293502.5</td>
+      <td>35698.5</td>
+      <td>1129500.0</td>
+      <td>Family</td>
+      <td>State servant</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.003541</td>
+      <td>-16765</td>
+      <td>-1188</td>
+      <td>-1186.0</td>
+      <td>-291</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>MONDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>School</td>
+      <td>0.311267</td>
+      <td>0.622246</td>
+      <td>NaN</td>
+      <td>0.0959</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7960</td>
+      <td>0.0605</td>
+      <td>0.08</td>
+      <td>...</td>
+      <td>0.0968</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7987</td>
+      <td>0.0608</td>
+      <td>0.08</td>
+      <td>0.0345</td>
+      <td>0.2917</td>
+      <td>0.3333</td>
+      <td>0.0132</td>
+      <td>0.0787</td>
+      <td>0.0558</td>
+      <td>0.0039</td>
+      <td>0.01</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0714</td>
+      <td>Block</td>
+      <td>No</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-828.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100004</td>
+      <td>0</td>
+      <td>Revolving loans</td>
+      <td>M</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>67500.0</td>
+      <td>135000.0</td>
+      <td>6750.0</td>
+      <td>135000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.010032</td>
+      <td>-19046</td>
+      <td>-225</td>
+      <td>-4260.0</td>
+      <td>-2531</td>
+      <td>26.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>MONDAY</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Government</td>
+      <td>NaN</td>
+      <td>0.555912</td>
+      <td>0.729567</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-815.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100006</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>135000.0</td>
+      <td>312682.5</td>
+      <td>29686.5</td>
+      <td>297000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Civil marriage</td>
+      <td>House / apartment</td>
+      <td>0.008019</td>
+      <td>-19005</td>
+      <td>-3039</td>
+      <td>-9833.0</td>
+      <td>-2437</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>NaN</td>
+      <td>0.650442</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>-617.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100007</td>
+      <td>0</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>121500.0</td>
+      <td>513000.0</td>
+      <td>21865.5</td>
+      <td>513000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.028663</td>
+      <td>-19932</td>
+      <td>-3038</td>
+      <td>-4311.0</td>
+      <td>-3458</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>THURSDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Religion</td>
+      <td>NaN</td>
+      <td>0.322738</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1106.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 122 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.1.1 There are 16 object types</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64    61
+uint8      37
+object     16
+float32    4 
+int16      2 
+int32      1 
+uint32     1 
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.2</span>
+<span class="n">test_df</span><span class="o">.</span><span class="n">shape</span>   <span class="c1"># (48744, 121)</span>
+<span class="n">test_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(48744, 121)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SK_ID_CURR</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>REGION_POPULATION_RELATIVE</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>OWN_CAR_AGE</th>
+      <th>FLAG_MOBIL</th>
+      <th>FLAG_EMP_PHONE</th>
+      <th>FLAG_WORK_PHONE</th>
+      <th>FLAG_CONT_MOBILE</th>
+      <th>FLAG_PHONE</th>
+      <th>FLAG_EMAIL</th>
+      <th>OCCUPATION_TYPE</th>
+      <th>CNT_FAM_MEMBERS</th>
+      <th>REGION_RATING_CLIENT</th>
+      <th>REGION_RATING_CLIENT_W_CITY</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>REG_REGION_NOT_LIVE_REGION</th>
+      <th>REG_REGION_NOT_WORK_REGION</th>
+      <th>LIVE_REGION_NOT_WORK_REGION</th>
+      <th>REG_CITY_NOT_LIVE_CITY</th>
+      <th>REG_CITY_NOT_WORK_CITY</th>
+      <th>LIVE_CITY_NOT_WORK_CITY</th>
+      <th>ORGANIZATION_TYPE</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>APARTMENTS_AVG</th>
+      <th>BASEMENTAREA_AVG</th>
+      <th>YEARS_BEGINEXPLUATATION_AVG</th>
+      <th>YEARS_BUILD_AVG</th>
+      <th>COMMONAREA_AVG</th>
+      <th>ELEVATORS_AVG</th>
+      <th>ENTRANCES_AVG</th>
+      <th>...</th>
+      <th>APARTMENTS_MEDI</th>
+      <th>BASEMENTAREA_MEDI</th>
+      <th>YEARS_BEGINEXPLUATATION_MEDI</th>
+      <th>YEARS_BUILD_MEDI</th>
+      <th>COMMONAREA_MEDI</th>
+      <th>ELEVATORS_MEDI</th>
+      <th>ENTRANCES_MEDI</th>
+      <th>FLOORSMAX_MEDI</th>
+      <th>FLOORSMIN_MEDI</th>
+      <th>LANDAREA_MEDI</th>
+      <th>LIVINGAPARTMENTS_MEDI</th>
+      <th>LIVINGAREA_MEDI</th>
+      <th>NONLIVINGAPARTMENTS_MEDI</th>
+      <th>NONLIVINGAREA_MEDI</th>
+      <th>FONDKAPREMONT_MODE</th>
+      <th>HOUSETYPE_MODE</th>
+      <th>TOTALAREA_MODE</th>
+      <th>WALLSMATERIAL_MODE</th>
+      <th>EMERGENCYSTATE_MODE</th>
+      <th>OBS_30_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_30_CNT_SOCIAL_CIRCLE</th>
+      <th>OBS_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>FLAG_DOCUMENT_2</th>
+      <th>FLAG_DOCUMENT_3</th>
+      <th>FLAG_DOCUMENT_4</th>
+      <th>FLAG_DOCUMENT_5</th>
+      <th>FLAG_DOCUMENT_6</th>
+      <th>FLAG_DOCUMENT_7</th>
+      <th>FLAG_DOCUMENT_8</th>
+      <th>FLAG_DOCUMENT_9</th>
+      <th>FLAG_DOCUMENT_10</th>
+      <th>FLAG_DOCUMENT_11</th>
+      <th>FLAG_DOCUMENT_12</th>
+      <th>FLAG_DOCUMENT_13</th>
+      <th>FLAG_DOCUMENT_14</th>
+      <th>FLAG_DOCUMENT_15</th>
+      <th>FLAG_DOCUMENT_16</th>
+      <th>FLAG_DOCUMENT_17</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>100001</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>135000.0</td>
+      <td>568800.0</td>
+      <td>20560.5</td>
+      <td>450000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.018850</td>
+      <td>-19241</td>
+      <td>-2329</td>
+      <td>-5170.0</td>
+      <td>-812</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>TUESDAY</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Kindergarten</td>
+      <td>0.752614</td>
+      <td>0.789654</td>
+      <td>0.159520</td>
+      <td>0.0660</td>
+      <td>0.0590</td>
+      <td>0.9732</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1379</td>
+      <td>...</td>
+      <td>0.0666</td>
+      <td>0.0590</td>
+      <td>0.9732</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1379</td>
+      <td>0.125</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0514</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>block of flats</td>
+      <td>0.0392</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1740.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>100005</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>99000.0</td>
+      <td>222768.0</td>
+      <td>17370.0</td>
+      <td>180000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.035792</td>
+      <td>-18064</td>
+      <td>-4469</td>
+      <td>-9118.0</td>
+      <td>-1623</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Low-skill Laborers</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>FRIDAY</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Self-employed</td>
+      <td>0.564990</td>
+      <td>0.291656</td>
+      <td>0.432962</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>100013</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>202500.0</td>
+      <td>663264.0</td>
+      <td>69777.0</td>
+      <td>630000.0</td>
+      <td>NaN</td>
+      <td>Working</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.019101</td>
+      <td>-20038</td>
+      <td>-4458</td>
+      <td>-2175.0</td>
+      <td>-3503</td>
+      <td>5.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Drivers</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>MONDAY</td>
+      <td>14</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Transport: type 3</td>
+      <td>NaN</td>
+      <td>0.699787</td>
+      <td>0.610991</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-856.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>100028</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>2</td>
+      <td>315000.0</td>
+      <td>1575000.0</td>
+      <td>49018.5</td>
+      <td>1575000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.026392</td>
+      <td>-13976</td>
+      <td>-1866</td>
+      <td>-2000.0</td>
+      <td>-4208</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Sales staff</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>0.525734</td>
+      <td>0.509677</td>
+      <td>0.612704</td>
+      <td>0.3052</td>
+      <td>0.1974</td>
+      <td>0.9970</td>
+      <td>0.9592</td>
+      <td>0.1165</td>
+      <td>0.32</td>
+      <td>0.2759</td>
+      <td>...</td>
+      <td>0.3081</td>
+      <td>0.1974</td>
+      <td>0.9970</td>
+      <td>0.9597</td>
+      <td>0.1173</td>
+      <td>0.32</td>
+      <td>0.2759</td>
+      <td>0.375</td>
+      <td>0.0417</td>
+      <td>0.2078</td>
+      <td>0.2446</td>
+      <td>0.3739</td>
+      <td>0.0388</td>
+      <td>0.0817</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.3700</td>
+      <td>Panel</td>
+      <td>No</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1805.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>100038</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>Y</td>
+      <td>N</td>
+      <td>1</td>
+      <td>180000.0</td>
+      <td>625500.0</td>
+      <td>32067.0</td>
+      <td>625500.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.010032</td>
+      <td>-13040</td>
+      <td>-2191</td>
+      <td>-4000.0</td>
+      <td>-4262</td>
+      <td>16.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>FRIDAY</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Business Entity Type 3</td>
+      <td>0.202145</td>
+      <td>0.425687</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-821.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 121 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.3 There are 16 object types</span>
+<span class="n">test_df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64    58
+uint8      35
+object     16
+float32    7 
+int16      2 
+int32      1 
+uint32     1 
+int8       1 
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.4 Append test_df to train</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_df</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.5 Examine merged data</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>     <span class="c1"># (356255, 123)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(356255, 123)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>SK_ID_CURR</th>
+      <th>TARGET</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>REGION_POPULATION_RELATIVE</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>OWN_CAR_AGE</th>
+      <th>FLAG_MOBIL</th>
+      <th>FLAG_EMP_PHONE</th>
+      <th>FLAG_WORK_PHONE</th>
+      <th>FLAG_CONT_MOBILE</th>
+      <th>FLAG_PHONE</th>
+      <th>FLAG_EMAIL</th>
+      <th>OCCUPATION_TYPE</th>
+      <th>CNT_FAM_MEMBERS</th>
+      <th>REGION_RATING_CLIENT</th>
+      <th>REGION_RATING_CLIENT_W_CITY</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>REG_REGION_NOT_LIVE_REGION</th>
+      <th>REG_REGION_NOT_WORK_REGION</th>
+      <th>LIVE_REGION_NOT_WORK_REGION</th>
+      <th>REG_CITY_NOT_LIVE_CITY</th>
+      <th>REG_CITY_NOT_WORK_CITY</th>
+      <th>LIVE_CITY_NOT_WORK_CITY</th>
+      <th>ORGANIZATION_TYPE</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>APARTMENTS_AVG</th>
+      <th>BASEMENTAREA_AVG</th>
+      <th>YEARS_BEGINEXPLUATATION_AVG</th>
+      <th>YEARS_BUILD_AVG</th>
+      <th>COMMONAREA_AVG</th>
+      <th>...</th>
+      <th>APARTMENTS_MEDI</th>
+      <th>BASEMENTAREA_MEDI</th>
+      <th>YEARS_BEGINEXPLUATATION_MEDI</th>
+      <th>YEARS_BUILD_MEDI</th>
+      <th>COMMONAREA_MEDI</th>
+      <th>ELEVATORS_MEDI</th>
+      <th>ENTRANCES_MEDI</th>
+      <th>FLOORSMAX_MEDI</th>
+      <th>FLOORSMIN_MEDI</th>
+      <th>LANDAREA_MEDI</th>
+      <th>LIVINGAPARTMENTS_MEDI</th>
+      <th>LIVINGAREA_MEDI</th>
+      <th>NONLIVINGAPARTMENTS_MEDI</th>
+      <th>NONLIVINGAREA_MEDI</th>
+      <th>FONDKAPREMONT_MODE</th>
+      <th>HOUSETYPE_MODE</th>
+      <th>TOTALAREA_MODE</th>
+      <th>WALLSMATERIAL_MODE</th>
+      <th>EMERGENCYSTATE_MODE</th>
+      <th>OBS_30_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_30_CNT_SOCIAL_CIRCLE</th>
+      <th>OBS_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>FLAG_DOCUMENT_2</th>
+      <th>FLAG_DOCUMENT_3</th>
+      <th>FLAG_DOCUMENT_4</th>
+      <th>FLAG_DOCUMENT_5</th>
+      <th>FLAG_DOCUMENT_6</th>
+      <th>FLAG_DOCUMENT_7</th>
+      <th>FLAG_DOCUMENT_8</th>
+      <th>FLAG_DOCUMENT_9</th>
+      <th>FLAG_DOCUMENT_10</th>
+      <th>FLAG_DOCUMENT_11</th>
+      <th>FLAG_DOCUMENT_12</th>
+      <th>FLAG_DOCUMENT_13</th>
+      <th>FLAG_DOCUMENT_14</th>
+      <th>FLAG_DOCUMENT_15</th>
+      <th>FLAG_DOCUMENT_16</th>
+      <th>FLAG_DOCUMENT_17</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>100002</td>
+      <td>1.0</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>202500.0</td>
+      <td>406597.5</td>
+      <td>24700.5</td>
+      <td>351000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.018801</td>
+      <td>-9461</td>
+      <td>-637</td>
+      <td>-3648.0</td>
+      <td>-2120</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>0.0247</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6192</td>
+      <td>0.0143</td>
+      <td>...</td>
+      <td>0.0250</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6243</td>
+      <td>0.0144</td>
+      <td>0.00</td>
+      <td>0.0690</td>
+      <td>0.0833</td>
+      <td>0.1250</td>
+      <td>0.0375</td>
+      <td>0.0205</td>
+      <td>0.0193</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0149</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>-1134.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>100003</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>N</td>
+      <td>0</td>
+      <td>270000.0</td>
+      <td>1293502.5</td>
+      <td>35698.5</td>
+      <td>1129500.0</td>
+      <td>Family</td>
+      <td>State servant</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.003541</td>
+      <td>-16765</td>
+      <td>-1188</td>
+      <td>-1186.0</td>
+      <td>-291</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>MONDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>School</td>
+      <td>0.311267</td>
+      <td>0.622246</td>
+      <td>NaN</td>
+      <td>0.0959</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7960</td>
+      <td>0.0605</td>
+      <td>...</td>
+      <td>0.0968</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7987</td>
+      <td>0.0608</td>
+      <td>0.08</td>
+      <td>0.0345</td>
+      <td>0.2917</td>
+      <td>0.3333</td>
+      <td>0.0132</td>
+      <td>0.0787</td>
+      <td>0.0558</td>
+      <td>0.0039</td>
+      <td>0.01</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0714</td>
+      <td>Block</td>
+      <td>No</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-828.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>100004</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>M</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>67500.0</td>
+      <td>135000.0</td>
+      <td>6750.0</td>
+      <td>135000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.010032</td>
+      <td>-19046</td>
+      <td>-225</td>
+      <td>-4260.0</td>
+      <td>-2531</td>
+      <td>26.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>MONDAY</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Government</td>
+      <td>NaN</td>
+      <td>0.555912</td>
+      <td>0.729567</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-815.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>100006</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>F</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>135000.0</td>
+      <td>312682.5</td>
+      <td>29686.5</td>
+      <td>297000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Civil marriage</td>
+      <td>House / apartment</td>
+      <td>0.008019</td>
+      <td>-19005</td>
+      <td>-3039</td>
+      <td>-9833.0</td>
+      <td>-2437</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>NaN</td>
+      <td>0.650442</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>-617.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>100007</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>M</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>121500.0</td>
+      <td>513000.0</td>
+      <td>21865.5</td>
+      <td>513000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.028663</td>
+      <td>-19932</td>
+      <td>-3038</td>
+      <td>-4311.0</td>
+      <td>-3458</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>THURSDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Religion</td>
+      <td>NaN</td>
+      <td>0.322738</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1106.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 123 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.6 This gender is rare. So such</span>
+<span class="c1">#     rows can be dropped</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CODE_GENDER&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;XNA&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>SK_ID_CURR</th>
+      <th>TARGET</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>REGION_POPULATION_RELATIVE</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>OWN_CAR_AGE</th>
+      <th>FLAG_MOBIL</th>
+      <th>FLAG_EMP_PHONE</th>
+      <th>FLAG_WORK_PHONE</th>
+      <th>FLAG_CONT_MOBILE</th>
+      <th>FLAG_PHONE</th>
+      <th>FLAG_EMAIL</th>
+      <th>OCCUPATION_TYPE</th>
+      <th>CNT_FAM_MEMBERS</th>
+      <th>REGION_RATING_CLIENT</th>
+      <th>REGION_RATING_CLIENT_W_CITY</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>REG_REGION_NOT_LIVE_REGION</th>
+      <th>REG_REGION_NOT_WORK_REGION</th>
+      <th>LIVE_REGION_NOT_WORK_REGION</th>
+      <th>REG_CITY_NOT_LIVE_CITY</th>
+      <th>REG_CITY_NOT_WORK_CITY</th>
+      <th>LIVE_CITY_NOT_WORK_CITY</th>
+      <th>ORGANIZATION_TYPE</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>APARTMENTS_AVG</th>
+      <th>BASEMENTAREA_AVG</th>
+      <th>YEARS_BEGINEXPLUATATION_AVG</th>
+      <th>YEARS_BUILD_AVG</th>
+      <th>COMMONAREA_AVG</th>
+      <th>...</th>
+      <th>APARTMENTS_MEDI</th>
+      <th>BASEMENTAREA_MEDI</th>
+      <th>YEARS_BEGINEXPLUATATION_MEDI</th>
+      <th>YEARS_BUILD_MEDI</th>
+      <th>COMMONAREA_MEDI</th>
+      <th>ELEVATORS_MEDI</th>
+      <th>ENTRANCES_MEDI</th>
+      <th>FLOORSMAX_MEDI</th>
+      <th>FLOORSMIN_MEDI</th>
+      <th>LANDAREA_MEDI</th>
+      <th>LIVINGAPARTMENTS_MEDI</th>
+      <th>LIVINGAREA_MEDI</th>
+      <th>NONLIVINGAPARTMENTS_MEDI</th>
+      <th>NONLIVINGAREA_MEDI</th>
+      <th>FONDKAPREMONT_MODE</th>
+      <th>HOUSETYPE_MODE</th>
+      <th>TOTALAREA_MODE</th>
+      <th>WALLSMATERIAL_MODE</th>
+      <th>EMERGENCYSTATE_MODE</th>
+      <th>OBS_30_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_30_CNT_SOCIAL_CIRCLE</th>
+      <th>OBS_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>FLAG_DOCUMENT_2</th>
+      <th>FLAG_DOCUMENT_3</th>
+      <th>FLAG_DOCUMENT_4</th>
+      <th>FLAG_DOCUMENT_5</th>
+      <th>FLAG_DOCUMENT_6</th>
+      <th>FLAG_DOCUMENT_7</th>
+      <th>FLAG_DOCUMENT_8</th>
+      <th>FLAG_DOCUMENT_9</th>
+      <th>FLAG_DOCUMENT_10</th>
+      <th>FLAG_DOCUMENT_11</th>
+      <th>FLAG_DOCUMENT_12</th>
+      <th>FLAG_DOCUMENT_13</th>
+      <th>FLAG_DOCUMENT_14</th>
+      <th>FLAG_DOCUMENT_15</th>
+      <th>FLAG_DOCUMENT_16</th>
+      <th>FLAG_DOCUMENT_17</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>35657</th>
+      <td>35657</td>
+      <td>141289</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>XNA</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>207000.0</td>
+      <td>382500.0</td>
+      <td>19125.0</td>
+      <td>337500.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Married</td>
+      <td>Municipal apartment</td>
+      <td>0.020713</td>
+      <td>-20232</td>
+      <td>-10044</td>
+      <td>-10024.0</td>
+      <td>-3537</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>3</td>
+      <td>TUESDAY</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 1</td>
+      <td>NaN</td>
+      <td>0.295998</td>
+      <td>0.461482</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-286.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>38566</th>
+      <td>38566</td>
+      <td>144669</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>XNA</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>2</td>
+      <td>157500.0</td>
+      <td>270000.0</td>
+      <td>13500.0</td>
+      <td>225000.0</td>
+      <td>Family</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.026392</td>
+      <td>-13717</td>
+      <td>-2797</td>
+      <td>-2241.0</td>
+      <td>-4659</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Low-skill Laborers</td>
+      <td>4.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>FRIDAY</td>
+      <td>16</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Industry: type 3</td>
+      <td>NaN</td>
+      <td>0.709205</td>
+      <td>0.310818</td>
+      <td>0.0165</td>
+      <td>0.0368</td>
+      <td>0.9811</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.0167</td>
+      <td>0.0368</td>
+      <td>0.9811</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0690</td>
+      <td>0.0417</td>
+      <td>NaN</td>
+      <td>0.0237</td>
+      <td>NaN</td>
+      <td>0.0117</td>
+      <td>NaN</td>
+      <td>0.000</td>
+      <td>NaN</td>
+      <td>block of flats</td>
+      <td>0.0090</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-493.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>83382</th>
+      <td>83382</td>
+      <td>196708</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>XNA</td>
+      <td>N</td>
+      <td>Y</td>
+      <td>1</td>
+      <td>135000.0</td>
+      <td>405000.0</td>
+      <td>20250.0</td>
+      <td>225000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.035792</td>
+      <td>-10647</td>
+      <td>-1228</td>
+      <td>-183.0</td>
+      <td>-1671</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>3.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>THURSDAY</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Kindergarten</td>
+      <td>0.404970</td>
+      <td>0.659185</td>
+      <td>0.076984</td>
+      <td>0.0773</td>
+      <td>0.1353</td>
+      <td>0.9921</td>
+      <td>0.8912</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.0781</td>
+      <td>0.1353</td>
+      <td>0.9921</td>
+      <td>0.8927</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.1379</td>
+      <td>0.1667</td>
+      <td>0.0417</td>
+      <td>NaN</td>
+      <td>0.0641</td>
+      <td>0.0632</td>
+      <td>0.0000</td>
+      <td>NaN</td>
+      <td>reg oper spec account</td>
+      <td>block of flats</td>
+      <td>0.0769</td>
+      <td>Panel</td>
+      <td>No</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+      <td>-851.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>189640</th>
+      <td>189640</td>
+      <td>319880</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>XNA</td>
+      <td>Y</td>
+      <td>Y</td>
+      <td>0</td>
+      <td>247500.0</td>
+      <td>540000.0</td>
+      <td>27000.0</td>
+      <td>900000.0</td>
+      <td>Unaccompanied</td>
+      <td>Commercial associate</td>
+      <td>Incomplete higher</td>
+      <td>Civil marriage</td>
+      <td>House / apartment</td>
+      <td>0.035792</td>
+      <td>-9649</td>
+      <td>-2293</td>
+      <td>-4099.0</td>
+      <td>-2326</td>
+      <td>8.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>FRIDAY</td>
+      <td>15</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Medicine</td>
+      <td>0.653035</td>
+      <td>0.658620</td>
+      <td>0.360613</td>
+      <td>0.0278</td>
+      <td>0.0555</td>
+      <td>0.9712</td>
+      <td>0.6056</td>
+      <td>0.0053</td>
+      <td>...</td>
+      <td>0.0281</td>
+      <td>0.0555</td>
+      <td>0.9712</td>
+      <td>0.6109</td>
+      <td>0.0054</td>
+      <td>0.0</td>
+      <td>0.0690</td>
+      <td>0.0833</td>
+      <td>0.1250</td>
+      <td>0.0266</td>
+      <td>0.0222</td>
+      <td>0.0298</td>
+      <td>0.0039</td>
+      <td>0.007</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0245</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>10.0</td>
+      <td>4.0</td>
+      <td>10.0</td>
+      <td>4.0</td>
+      <td>-1681.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>4 rows × 123 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.7 Optional: Remove 4 applications with XNA CODE_GENDER (train set)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CODE_GENDER&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;XNA&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.8 Categorical features with Binary encode (0 or 1; two categories)</span>
+<span class="k">for</span> <span class="n">bin_feature</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;CODE_GENDER&#39;</span><span class="p">,</span> <span class="s1">&#39;FLAG_OWN_CAR&#39;</span><span class="p">,</span> <span class="s1">&#39;FLAG_OWN_REALTY&#39;</span><span class="p">]:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">bin_feature</span><span class="p">],</span> <span class="n">uniques</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">bin_feature</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.8.1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">uniques</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>SK_ID_CURR</th>
+      <th>TARGET</th>
+      <th>NAME_CONTRACT_TYPE</th>
+      <th>CODE_GENDER</th>
+      <th>FLAG_OWN_CAR</th>
+      <th>FLAG_OWN_REALTY</th>
+      <th>CNT_CHILDREN</th>
+      <th>AMT_INCOME_TOTAL</th>
+      <th>AMT_CREDIT</th>
+      <th>AMT_ANNUITY</th>
+      <th>AMT_GOODS_PRICE</th>
+      <th>NAME_TYPE_SUITE</th>
+      <th>NAME_INCOME_TYPE</th>
+      <th>NAME_EDUCATION_TYPE</th>
+      <th>NAME_FAMILY_STATUS</th>
+      <th>NAME_HOUSING_TYPE</th>
+      <th>REGION_POPULATION_RELATIVE</th>
+      <th>DAYS_BIRTH</th>
+      <th>DAYS_EMPLOYED</th>
+      <th>DAYS_REGISTRATION</th>
+      <th>DAYS_ID_PUBLISH</th>
+      <th>OWN_CAR_AGE</th>
+      <th>FLAG_MOBIL</th>
+      <th>FLAG_EMP_PHONE</th>
+      <th>FLAG_WORK_PHONE</th>
+      <th>FLAG_CONT_MOBILE</th>
+      <th>FLAG_PHONE</th>
+      <th>FLAG_EMAIL</th>
+      <th>OCCUPATION_TYPE</th>
+      <th>CNT_FAM_MEMBERS</th>
+      <th>REGION_RATING_CLIENT</th>
+      <th>REGION_RATING_CLIENT_W_CITY</th>
+      <th>WEEKDAY_APPR_PROCESS_START</th>
+      <th>HOUR_APPR_PROCESS_START</th>
+      <th>REG_REGION_NOT_LIVE_REGION</th>
+      <th>REG_REGION_NOT_WORK_REGION</th>
+      <th>LIVE_REGION_NOT_WORK_REGION</th>
+      <th>REG_CITY_NOT_LIVE_CITY</th>
+      <th>REG_CITY_NOT_WORK_CITY</th>
+      <th>LIVE_CITY_NOT_WORK_CITY</th>
+      <th>ORGANIZATION_TYPE</th>
+      <th>EXT_SOURCE_1</th>
+      <th>EXT_SOURCE_2</th>
+      <th>EXT_SOURCE_3</th>
+      <th>APARTMENTS_AVG</th>
+      <th>BASEMENTAREA_AVG</th>
+      <th>YEARS_BEGINEXPLUATATION_AVG</th>
+      <th>YEARS_BUILD_AVG</th>
+      <th>COMMONAREA_AVG</th>
+      <th>...</th>
+      <th>APARTMENTS_MEDI</th>
+      <th>BASEMENTAREA_MEDI</th>
+      <th>YEARS_BEGINEXPLUATATION_MEDI</th>
+      <th>YEARS_BUILD_MEDI</th>
+      <th>COMMONAREA_MEDI</th>
+      <th>ELEVATORS_MEDI</th>
+      <th>ENTRANCES_MEDI</th>
+      <th>FLOORSMAX_MEDI</th>
+      <th>FLOORSMIN_MEDI</th>
+      <th>LANDAREA_MEDI</th>
+      <th>LIVINGAPARTMENTS_MEDI</th>
+      <th>LIVINGAREA_MEDI</th>
+      <th>NONLIVINGAPARTMENTS_MEDI</th>
+      <th>NONLIVINGAREA_MEDI</th>
+      <th>FONDKAPREMONT_MODE</th>
+      <th>HOUSETYPE_MODE</th>
+      <th>TOTALAREA_MODE</th>
+      <th>WALLSMATERIAL_MODE</th>
+      <th>EMERGENCYSTATE_MODE</th>
+      <th>OBS_30_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_30_CNT_SOCIAL_CIRCLE</th>
+      <th>OBS_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DEF_60_CNT_SOCIAL_CIRCLE</th>
+      <th>DAYS_LAST_PHONE_CHANGE</th>
+      <th>FLAG_DOCUMENT_2</th>
+      <th>FLAG_DOCUMENT_3</th>
+      <th>FLAG_DOCUMENT_4</th>
+      <th>FLAG_DOCUMENT_5</th>
+      <th>FLAG_DOCUMENT_6</th>
+      <th>FLAG_DOCUMENT_7</th>
+      <th>FLAG_DOCUMENT_8</th>
+      <th>FLAG_DOCUMENT_9</th>
+      <th>FLAG_DOCUMENT_10</th>
+      <th>FLAG_DOCUMENT_11</th>
+      <th>FLAG_DOCUMENT_12</th>
+      <th>FLAG_DOCUMENT_13</th>
+      <th>FLAG_DOCUMENT_14</th>
+      <th>FLAG_DOCUMENT_15</th>
+      <th>FLAG_DOCUMENT_16</th>
+      <th>FLAG_DOCUMENT_17</th>
+      <th>FLAG_DOCUMENT_18</th>
+      <th>FLAG_DOCUMENT_19</th>
+      <th>FLAG_DOCUMENT_20</th>
+      <th>FLAG_DOCUMENT_21</th>
+      <th>AMT_REQ_CREDIT_BUREAU_HOUR</th>
+      <th>AMT_REQ_CREDIT_BUREAU_DAY</th>
+      <th>AMT_REQ_CREDIT_BUREAU_WEEK</th>
+      <th>AMT_REQ_CREDIT_BUREAU_MON</th>
+      <th>AMT_REQ_CREDIT_BUREAU_QRT</th>
+      <th>AMT_REQ_CREDIT_BUREAU_YEAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>100002</td>
+      <td>1.0</td>
+      <td>Cash loans</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>202500.0</td>
+      <td>406597.5</td>
+      <td>24700.5</td>
+      <td>351000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.018801</td>
+      <td>-9461</td>
+      <td>-637</td>
+      <td>-3648.0</td>
+      <td>-2120</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>10</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>0.083037</td>
+      <td>0.262949</td>
+      <td>0.139376</td>
+      <td>0.0247</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6192</td>
+      <td>0.0143</td>
+      <td>...</td>
+      <td>0.0250</td>
+      <td>0.0369</td>
+      <td>0.9722</td>
+      <td>0.6243</td>
+      <td>0.0144</td>
+      <td>0.00</td>
+      <td>0.0690</td>
+      <td>0.0833</td>
+      <td>0.1250</td>
+      <td>0.0375</td>
+      <td>0.0205</td>
+      <td>0.0193</td>
+      <td>0.0000</td>
+      <td>0.00</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0149</td>
+      <td>Stone, brick</td>
+      <td>No</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>-1134.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>100003</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>270000.0</td>
+      <td>1293502.5</td>
+      <td>35698.5</td>
+      <td>1129500.0</td>
+      <td>Family</td>
+      <td>State servant</td>
+      <td>Higher education</td>
+      <td>Married</td>
+      <td>House / apartment</td>
+      <td>0.003541</td>
+      <td>-16765</td>
+      <td>-1188</td>
+      <td>-1186.0</td>
+      <td>-291</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>MONDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>School</td>
+      <td>0.311267</td>
+      <td>0.622246</td>
+      <td>NaN</td>
+      <td>0.0959</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7960</td>
+      <td>0.0605</td>
+      <td>...</td>
+      <td>0.0968</td>
+      <td>0.0529</td>
+      <td>0.9851</td>
+      <td>0.7987</td>
+      <td>0.0608</td>
+      <td>0.08</td>
+      <td>0.0345</td>
+      <td>0.2917</td>
+      <td>0.3333</td>
+      <td>0.0132</td>
+      <td>0.0787</td>
+      <td>0.0558</td>
+      <td>0.0039</td>
+      <td>0.01</td>
+      <td>reg oper account</td>
+      <td>block of flats</td>
+      <td>0.0714</td>
+      <td>Block</td>
+      <td>No</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>-828.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>100004</td>
+      <td>0.0</td>
+      <td>Revolving loans</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>67500.0</td>
+      <td>135000.0</td>
+      <td>6750.0</td>
+      <td>135000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.010032</td>
+      <td>-19046</td>
+      <td>-225</td>
+      <td>-4260.0</td>
+      <td>-2531</td>
+      <td>26.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>MONDAY</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Government</td>
+      <td>NaN</td>
+      <td>0.555912</td>
+      <td>0.729567</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-815.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>100006</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>135000.0</td>
+      <td>312682.5</td>
+      <td>29686.5</td>
+      <td>297000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Civil marriage</td>
+      <td>House / apartment</td>
+      <td>0.008019</td>
+      <td>-19005</td>
+      <td>-3039</td>
+      <td>-9833.0</td>
+      <td>-2437</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Laborers</td>
+      <td>2.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>WEDNESDAY</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Business Entity Type 3</td>
+      <td>NaN</td>
+      <td>0.650442</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>-617.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>100007</td>
+      <td>0.0</td>
+      <td>Cash loans</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>121500.0</td>
+      <td>513000.0</td>
+      <td>21865.5</td>
+      <td>513000.0</td>
+      <td>Unaccompanied</td>
+      <td>Working</td>
+      <td>Secondary / secondary special</td>
+      <td>Single / not married</td>
+      <td>House / apartment</td>
+      <td>0.028663</td>
+      <td>-19932</td>
+      <td>-3038</td>
+      <td>-4311.0</td>
+      <td>-3458</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>Core staff</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>THURSDAY</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Religion</td>
+      <td>NaN</td>
+      <td>0.322738</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-1106.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 123 columns</p>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Y&#39;, &#39;N&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3.8.2</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;CODE_GENDER&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;FLAG_OWN_CAR&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">[</span><span class="s1">&#39;FLAG_OWN_REALTY&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>index                         int64  
+SK_ID_CURR                    uint32 
+TARGET                        float64
+NAME_CONTRACT_TYPE            object 
+CODE_GENDER                   int64  
+                              ...    
+AMT_REQ_CREDIT_BUREAU_DAY     float64
+AMT_REQ_CREDIT_BUREAU_WEEK    float64
+AMT_REQ_CREDIT_BUREAU_MON     float64
+AMT_REQ_CREDIT_BUREAU_QRT     float64
+AMT_REQ_CREDIT_BUREAU_YEAR    float64
+Length: 123, dtype: object
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float64    62
+uint8      35
+object     13
+int64      4 
+float32    4 
+int16      3 
+int32      1 
+uint32     1 
+dtype: int64
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.0 Categorical features with One-Hot encode</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">cat_cols</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">nan_as_category</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.1</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">)</span>   <span class="c1"># 146</span>
+<span class="n">cat_cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>146
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;NAME_CONTRACT_TYPE_Cash loans&#39;,
+ &#39;NAME_CONTRACT_TYPE_Revolving loans&#39;,
+ &#39;NAME_CONTRACT_TYPE_nan&#39;,
+ &#39;NAME_TYPE_SUITE_Children&#39;,
+ &#39;NAME_TYPE_SUITE_Family&#39;,
+ &#39;NAME_TYPE_SUITE_Group of people&#39;,
+ &#39;NAME_TYPE_SUITE_Other_A&#39;,
+ &#39;NAME_TYPE_SUITE_Other_B&#39;,
+ &#39;NAME_TYPE_SUITE_Spouse, partner&#39;,
+ &#39;NAME_TYPE_SUITE_Unaccompanied&#39;,
+ &#39;NAME_TYPE_SUITE_nan&#39;,
+ &#39;NAME_INCOME_TYPE_Businessman&#39;,
+ &#39;NAME_INCOME_TYPE_Commercial associate&#39;,
+ &#39;NAME_INCOME_TYPE_Maternity leave&#39;,
+ &#39;NAME_INCOME_TYPE_Pensioner&#39;,
+ &#39;NAME_INCOME_TYPE_State servant&#39;,
+ &#39;NAME_INCOME_TYPE_Student&#39;,
+ &#39;NAME_INCOME_TYPE_Unemployed&#39;,
+ &#39;NAME_INCOME_TYPE_Working&#39;,
+ &#39;NAME_INCOME_TYPE_nan&#39;,
+ &#39;NAME_EDUCATION_TYPE_Academic degree&#39;,
+ &#39;NAME_EDUCATION_TYPE_Higher education&#39;,
+ &#39;NAME_EDUCATION_TYPE_Incomplete higher&#39;,
+ &#39;NAME_EDUCATION_TYPE_Lower secondary&#39;,
+ &#39;NAME_EDUCATION_TYPE_Secondary / secondary special&#39;,
+ &#39;NAME_EDUCATION_TYPE_nan&#39;,
+ &#39;NAME_FAMILY_STATUS_Civil marriage&#39;,
+ &#39;NAME_FAMILY_STATUS_Married&#39;,
+ &#39;NAME_FAMILY_STATUS_Separated&#39;,
+ &#39;NAME_FAMILY_STATUS_Single / not married&#39;,
+ &#39;NAME_FAMILY_STATUS_Unknown&#39;,
+ &#39;NAME_FAMILY_STATUS_Widow&#39;,
+ &#39;NAME_FAMILY_STATUS_nan&#39;,
+ &#39;NAME_HOUSING_TYPE_Co-op apartment&#39;,
+ &#39;NAME_HOUSING_TYPE_House / apartment&#39;,
+ &#39;NAME_HOUSING_TYPE_Municipal apartment&#39;,
+ &#39;NAME_HOUSING_TYPE_Office apartment&#39;,
+ &#39;NAME_HOUSING_TYPE_Rented apartment&#39;,
+ &#39;NAME_HOUSING_TYPE_With parents&#39;,
+ &#39;NAME_HOUSING_TYPE_nan&#39;,
+ &#39;OCCUPATION_TYPE_Accountants&#39;,
+ &#39;OCCUPATION_TYPE_Cleaning staff&#39;,
+ &#39;OCCUPATION_TYPE_Cooking staff&#39;,
+ &#39;OCCUPATION_TYPE_Core staff&#39;,
+ &#39;OCCUPATION_TYPE_Drivers&#39;,
+ &#39;OCCUPATION_TYPE_HR staff&#39;,
+ &#39;OCCUPATION_TYPE_High skill tech staff&#39;,
+ &#39;OCCUPATION_TYPE_IT staff&#39;,
+ &#39;OCCUPATION_TYPE_Laborers&#39;,
+ &#39;OCCUPATION_TYPE_Low-skill Laborers&#39;,
+ &#39;OCCUPATION_TYPE_Managers&#39;,
+ &#39;OCCUPATION_TYPE_Medicine staff&#39;,
+ &#39;OCCUPATION_TYPE_Private service staff&#39;,
+ &#39;OCCUPATION_TYPE_Realty agents&#39;,
+ &#39;OCCUPATION_TYPE_Sales staff&#39;,
+ &#39;OCCUPATION_TYPE_Secretaries&#39;,
+ &#39;OCCUPATION_TYPE_Security staff&#39;,
+ &#39;OCCUPATION_TYPE_Waiters/barmen staff&#39;,
+ &#39;OCCUPATION_TYPE_nan&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_FRIDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_MONDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_SATURDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_SUNDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_THURSDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_TUESDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_WEDNESDAY&#39;,
+ &#39;WEEKDAY_APPR_PROCESS_START_nan&#39;,
+ &#39;ORGANIZATION_TYPE_Advertising&#39;,
+ &#39;ORGANIZATION_TYPE_Agriculture&#39;,
+ &#39;ORGANIZATION_TYPE_Bank&#39;,
+ &#39;ORGANIZATION_TYPE_Business Entity Type 1&#39;,
+ &#39;ORGANIZATION_TYPE_Business Entity Type 2&#39;,
+ &#39;ORGANIZATION_TYPE_Business Entity Type 3&#39;,
+ &#39;ORGANIZATION_TYPE_Cleaning&#39;,
+ &#39;ORGANIZATION_TYPE_Construction&#39;,
+ &#39;ORGANIZATION_TYPE_Culture&#39;,
+ &#39;ORGANIZATION_TYPE_Electricity&#39;,
+ &#39;ORGANIZATION_TYPE_Emergency&#39;,
+ &#39;ORGANIZATION_TYPE_Government&#39;,
+ &#39;ORGANIZATION_TYPE_Hotel&#39;,
+ &#39;ORGANIZATION_TYPE_Housing&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 1&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 10&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 11&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 12&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 13&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 2&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 3&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 4&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 5&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 6&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 7&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 8&#39;,
+ &#39;ORGANIZATION_TYPE_Industry: type 9&#39;,
+ &#39;ORGANIZATION_TYPE_Insurance&#39;,
+ &#39;ORGANIZATION_TYPE_Kindergarten&#39;,
+ &#39;ORGANIZATION_TYPE_Legal Services&#39;,
+ &#39;ORGANIZATION_TYPE_Medicine&#39;,
+ &#39;ORGANIZATION_TYPE_Military&#39;,
+ &#39;ORGANIZATION_TYPE_Mobile&#39;,
+ &#39;ORGANIZATION_TYPE_Other&#39;,
+ &#39;ORGANIZATION_TYPE_Police&#39;,
+ &#39;ORGANIZATION_TYPE_Postal&#39;,
+ &#39;ORGANIZATION_TYPE_Realtor&#39;,
+ &#39;ORGANIZATION_TYPE_Religion&#39;,
+ &#39;ORGANIZATION_TYPE_Restaurant&#39;,
+ &#39;ORGANIZATION_TYPE_School&#39;,
+ &#39;ORGANIZATION_TYPE_Security&#39;,
+ &#39;ORGANIZATION_TYPE_Security Ministries&#39;,
+ &#39;ORGANIZATION_TYPE_Self-employed&#39;,
+ &#39;ORGANIZATION_TYPE_Services&#39;,
+ &#39;ORGANIZATION_TYPE_Telecom&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 1&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 2&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 3&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 4&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 5&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 6&#39;,
+ &#39;ORGANIZATION_TYPE_Trade: type 7&#39;,
+ &#39;ORGANIZATION_TYPE_Transport: type 1&#39;,
+ &#39;ORGANIZATION_TYPE_Transport: type 2&#39;,
+ &#39;ORGANIZATION_TYPE_Transport: type 3&#39;,
+ &#39;ORGANIZATION_TYPE_Transport: type 4&#39;,
+ &#39;ORGANIZATION_TYPE_University&#39;,
+ &#39;ORGANIZATION_TYPE_XNA&#39;,
+ &#39;ORGANIZATION_TYPE_nan&#39;,
+ &#39;FONDKAPREMONT_MODE_not specified&#39;,
+ &#39;FONDKAPREMONT_MODE_org spec account&#39;,
+ &#39;FONDKAPREMONT_MODE_reg oper account&#39;,
+ &#39;FONDKAPREMONT_MODE_reg oper spec account&#39;,
+ &#39;FONDKAPREMONT_MODE_nan&#39;,
+ &#39;HOUSETYPE_MODE_block of flats&#39;,
+ &#39;HOUSETYPE_MODE_specific housing&#39;,
+ &#39;HOUSETYPE_MODE_terraced house&#39;,
+ &#39;HOUSETYPE_MODE_nan&#39;,
+ &#39;WALLSMATERIAL_MODE_Block&#39;,
+ &#39;WALLSMATERIAL_MODE_Mixed&#39;,
+ &#39;WALLSMATERIAL_MODE_Monolithic&#39;,
+ &#39;WALLSMATERIAL_MODE_Others&#39;,
+ &#39;WALLSMATERIAL_MODE_Panel&#39;,
+ &#39;WALLSMATERIAL_MODE_Stone, brick&#39;,
+ &#39;WALLSMATERIAL_MODE_Wooden&#39;,
+ &#39;WALLSMATERIAL_MODE_nan&#39;,
+ &#39;EMERGENCYSTATE_MODE_No&#39;,
+ &#39;EMERGENCYSTATE_MODE_Yes&#39;,
+ &#39;EMERGENCYSTATE_MODE_nan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.2 NaN values for DAYS_EMPLOYED: 365.243 -&gt; nan</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;DAYS_EMPLOYED&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">365243</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4.3 Some simple new features (percentages)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;DAYS_EMPLOYED_PERC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DAYS_EMPLOYED&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DAYS_BIRTH&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCOME_CREDIT_PERC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_INCOME_TOTAL&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_CREDIT&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;INCOME_PER_PERSON&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_INCOME_TOTAL&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CNT_FAM_MEMBERS&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ANNUITY_INCOME_PERC&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_ANNUITY&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_INCOME_TOTAL&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;PAYMENT_RATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_ANNUITY&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;AMT_CREDIT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5.0 Save the results for subsequent use:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;processed_df.csv.zip&quot;</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s2">&quot;zip&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#################</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="start-here-a-gentle-introduction.html" title="previous page">Introduction: Home Credit Default Risk Competition</a>
+    <a class='right-next' id="next-link" href="bureau.html" title="next page">Bureau and Bureau Balance data</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
