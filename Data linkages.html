@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; Home Credit Default Risk Assessment</title>
+    <title>Home Credit Default Risk Competition &#8212; Home Credit Default Risk Assessment</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -53,7 +53,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -91,23 +91,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="landing-page.html">
    Home Credit Default Risk Assessment
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Get started
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="data_linkages.html">
-   Home Credit Default Risk Competition
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="data_linkages.html#data">
-   Data
   </a>
  </li>
 </ul>
@@ -232,6 +215,18 @@
             class="fas fa-download"></i></button>
 
     
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Data linkages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
 </div>
         <!-- Source interaction buttons -->
 
@@ -244,10 +239,46 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Data linkages.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Home Credit Default Risk Competition
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+</ul>
+
+        </nav>
         
     </div>
 </div>
@@ -256,13 +287,58 @@
         
               <div>
                 
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="home-credit-default-risk-competition">
+<h1>Home Credit Default Risk Competition<a class="headerlink" href="#home-credit-default-risk-competition" title="Permalink to this headline">¶</a></h1>
+<p>Consider this collection of notebooks as a case-study intended for those who are beginners in Machine Learning. We have tried to expand upon the code with our comments available in some of the notebooks on Kaggle.</p>
+</div>
+<div class="section" id="data">
+<h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
+<p>The data as provided by <a class="reference external" href="http://www.homecredit.net/about-us.aspx">Home Credit</a>, is divided in seven interlinked tables. The data description is as follows. The interlinkages between data sources is depiced in the following diagram.</p>
+<ul class="simple">
+<li><p>application_train/application_test: the main training and testing data with information about each loan application at Home Credit. Every loan has its own row and is identified by the feature <code class="docutils literal notranslate"><span class="pre">SK_ID_CURR</span></code>. The training application data comes with the <code class="docutils literal notranslate"><span class="pre">TARGET</span></code> indicating 0: the loan was repaid or 1: the loan was not repaid.</p></li>
+<li><p>bureau: data concerning client’s previous credits from other financial institutions. Each previous credit has its own row in bureau, but one loan in the application data can have multiple previous credits.</p></li>
+<li><p>bureau_balance: monthly data about the previous credits in bureau. Each row is one month of a previous credit, and a single previous credit can have multiple rows, one for each month of the credit length.</p></li>
+<li><p>previous_application: previous applications for loans at Home Credit of clients who have loans in the application data. Each current loan in the application data can have multiple previous loans. Each previous application has one row and is identified by the feature <code class="docutils literal notranslate"><span class="pre">SK_ID_PREV</span></code>.</p></li>
+<li><p>POS_CASH_BALANCE: monthly data about previous point of sale or cash loans clients have had with Home Credit. Each row is one month of a previous point of sale or cash loan, and a single previous loan can have many rows.</p></li>
+<li><p>credit_card_balance: monthly data about previous credit cards clients have had with Home Credit. Each row is one month of a credit card balance, and a single credit card can have many rows.</p></li>
+<li><p>installments_payment: payment history for previous loans at Home Credit. There is one row for every made payment and one row for every missed payment.</p></li>
+</ul>
+<p>This diagram shows how all of the data is related:</p>
+<p><img alt="image" src="https://storage.googleapis.com/kaggle-media/competitions/home-credit/home_credit.png" /></p>
+<p>The definitions of all the columns is provided in <code class="docutils literal notranslate"><span class="pre">HomeCredit_columns_description.csv</span></code>.</p>
+<p><strong>Some references</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myscore.cibil.com/CreditView/creditEducation.page?enterprise=CIBIL&amp;_ga=2.245893574.372615569.1603669858-164953316.1602941832&amp;_gac=1.254345978.1602941832.CjwKCAjwrKr8BRB_EiwA7eFaplQtBsmINtLxLHOCalWYdx-uO20kyaj0AvRVD8WKNO4cj5mP7MoBTRoC6TEQAvD_BwE">Credit Education</a></p></li>
+<li><p><a class="reference external" href="https://www.paisadukan.com/credit-assessment-methodology">Credit Appraisal Methodology and Statndards</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#############</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
