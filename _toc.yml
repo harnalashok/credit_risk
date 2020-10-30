@@ -2,7 +2,7 @@
 - file: landing-page
 - part: Get started
   chapters:
-  - file: start-here-a-gentle-introduction
+  - file: data_linkages
 - part: Process train/test
   chapters:  
   - file: application_train_test
